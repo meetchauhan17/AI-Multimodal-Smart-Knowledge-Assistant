@@ -1,24 +1,13 @@
-<!-- Option 3: 7-Domain Knowledge Wheel & AI Core -->
+<!-- Concept 3: Minimalist Neural Monogram ('A' + Spark) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Outer Wheel Circle -->
-  <circle cx="256" cy="256" r="190" fill="#fdfbf7" stroke="#2d2d2d" stroke-width="14"/>
-  <!-- 7 Spokes for 7 Knowledge Domains -->
-  <line x1="256" y1="256" x2="256" y2="70" stroke="#2d5da1" stroke-width="8"/>
-  <line x1="256" y1="256" x2="410" y2="140" stroke="#2d5da1" stroke-width="8"/>
-  <line x1="256" y1="256" x2="435" y2="300" stroke="#2d5da1" stroke-width="8"/>
-  <line x1="256" y1="256" x2="335" y2="430" stroke="#2d5da1" stroke-width="8"/>
-  <line x1="256" y1="256" x2="177" y2="430" stroke="#2d5da1" stroke-width="8"/>
-  <line x1="256" y1="256" x2="77" y2="300" stroke="#2d5da1" stroke-width="8"/>
-  <line x1="256" y1="256" x2="102" y2="140" stroke="#2d5da1" stroke-width="8"/>
-  <!-- Domain Node Dots -->
-  <circle cx="256" cy="70" r="14" fill="#e74c3c" stroke="#2d2d2d" stroke-width="4"/>
-  <circle cx="410" cy="140" r="14" fill="#fff9c4" stroke="#2d2d2d" stroke-width="4"/>
-  <circle cx="435" cy="300" r="14" fill="#16a34a" stroke="#2d2d2d" stroke-width="4"/>
-  <circle cx="335" cy="430" r="14" fill="#e74c3c" stroke="#2d2d2d" stroke-width="4"/>
-  <circle cx="177" cy="430" r="14" fill="#fff9c4" stroke="#2d2d2d" stroke-width="4"/>
-  <circle cx="77" cy="300" r="14" fill="#16a34a" stroke="#2d2d2d" stroke-width="4"/>
-  <circle cx="102" cy="140" r="14" fill="#2d5da1" stroke="#2d2d2d" stroke-width="4"/>
-  <!-- Central AI Core -->
-  <circle cx="256" cy="256" r="48" fill="#fff9c4" stroke="#2d2d2d" stroke-width="10"/>
-  <circle cx="256" cy="256" r="20" fill="#2d2d2d"/>
+  <defs>
+    <linearGradient id="c3-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <path d="M 110 400 L 256 100 L 402 400" fill="none" stroke="url(#c3-grad)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="270" r="28" fill="#F59E0B"/>
+  <line x1="160" y1="300" x2="352" y2="300" stroke="#06B6D4" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="256" cy="100" r="14" fill="#FFFFFF"/>
 </svg>

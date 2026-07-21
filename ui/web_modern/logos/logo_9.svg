@@ -1,11 +1,19 @@
-<!-- Option 9: Capstone Knowledge Torch & Digital Book -->
+<!-- Concept 9: Dynamic Neural Node Orbit (DeepMind Style) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Open Book Base -->
-  <path d="M 256 260 C 180 220, 100 240, 70 270 V 420 C 100 390, 180 370, 256 410 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
-  <path d="M 256 260 C 332 220, 412 240, 442 270 V 420 C 412 390, 332 370, 256 410 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
-  <!-- Torch Handle -->
-  <rect x="242" y="200" width="28" height="120" rx="8" fill="#2d5da1" stroke="#2d2d2d" stroke-width="8"/>
-  <!-- Flame Plasma Top -->
-  <path d="M 256 60 C 290 110, 310 150, 256 190 C 202 150, 222 110, 256 60 Z" fill="#e74c3c" stroke="#2d2d2d" stroke-width="8"/>
-  <circle cx="256" cy="130" r="14" fill="#fff"/>
+  <defs>
+    <linearGradient id="c9-orbit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="190" fill="none" stroke="url(#c9-orbit)" stroke-width="12" stroke-dasharray="32 16"/>
+  <circle cx="256" cy="256" r="130" fill="none" stroke="url(#c9-orbit)" stroke-width="16"/>
+  <circle cx="256" cy="256" r="70" fill="none" stroke="url(#c9-orbit)" stroke-width="20"/>
+  <!-- Orbital Nodes -->
+  <circle cx="256" cy="66" r="16" fill="#00F2FE"/>
+  <circle cx="386" cy="256" r="16" fill="#EC4899"/>
+  <circle cx="256" cy="386" r="16" fill="#F59E0B"/>
+  <circle cx="126" cy="256" r="16" fill="#3B82F6"/>
+  <circle cx="256" cy="256" r="28" fill="#FFFFFF"/>
 </svg>

@@ -1,15 +1,12 @@
-<!-- Option 1: Multimodal Triangle (Voice + Vision + Text RAG) -->
+<!-- Concept 1: Modern AI Mobius Prism (Anthropic/Linear Style) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Triangle Outline -->
-  <polygon points="256,70 430,390 82,390" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14" stroke-linejoin="round"/>
-  <!-- Top Node: Voice Mic -->
-  <circle cx="256" cy="115" r="28" fill="#2d5da1" stroke="#2d2d2d" stroke-width="6"/>
-  <path d="M248 105 H264 V125 H248 Z" fill="#fff"/>
-  <!-- Right Node: Vision Eye -->
-  <circle cx="395" cy="365" r="28" fill="#e74c3c" stroke="#2d2d2d" stroke-width="6"/>
-  <circle cx="395" cy="365" r="10" fill="#fff"/>
-  <!-- Left Node: RAG Book -->
-  <circle cx="117" cy="365" r="28" fill="#16a34a" stroke="#2d2d2d" stroke-width="6"/>
-  <!-- Central AI Nucleus Spark -->
-  <path d="M256 210 L266 240 L296 250 L266 260 L256 290 L246 260 L216 250 L246 240 Z" fill="#e74c3c" stroke="#2d2d2d" stroke-width="6"/>
+  <defs>
+    <linearGradient id="c1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <path d="M 96 360 V 170 C 96 110, 160 110, 196 150 L 256 230 L 316 150 C 352 110, 416 110, 416 170 V 360" fill="none" stroke="url(#c1-grad)" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 256 70 L 268 102 L 300 114 L 268 126 L 256 158 L 244 126 L 212 114 L 244 102 Z" fill="#F59E0B"/>
 </svg>

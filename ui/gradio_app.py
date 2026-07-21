@@ -195,7 +195,7 @@ def build_app() -> gr.Blocks:
                     with gr.Column(scale=1):
                         text_in = gr.Textbox(
                             lines=3,
-                            placeholder="Type your question here...",
+                            placeholder="✨ Ask me anything... Try 'What is the history of the Colosseum?', 'Diagnose this symptom', or 'How do I apply for college?'",
                             label="Typed Question"
                         )
                         audio_in = gr.Audio(

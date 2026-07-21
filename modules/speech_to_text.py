@@ -159,7 +159,12 @@ def transcribe_audio(audio_filepath: str | Path, language: str | None = None) ->
         logger.info(f"Starting Whisper transcription for {audio_path.name} using '{model_size}' model")
         
         # transcribe() returns a generator of segments and a transcription info object
-        segments, trans_info = model.transcribe(transcribe_path, language=language)
+        segments, trans_info = model.transcribe(
+            transcribe_path, 
+            language=language or "en",
+            condition_on_previous_text=False,
+            temperature=0.0
+        )
         
         # Consume segments generator to get the full transcript text
         text_parts = [segment.text for segment in segments]

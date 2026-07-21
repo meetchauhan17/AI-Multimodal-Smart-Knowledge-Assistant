@@ -49,7 +49,7 @@ class Settings(BaseSettings):
     )
 
     # ── Speech ────────────────────────────────────────────────────────────────
-    whisper_model: str = Field(default="base", alias="WHISPER_MODEL")
+    whisper_model: str = Field(default="small", alias="WHISPER_MODEL")
 
     # ── Paths ─────────────────────────────────────────────────────────────────
     knowledge_base_dir: str = Field(default="data/knowledge_base", alias="KNOWLEDGE_BASE_DIR")

@@ -374,12 +374,18 @@ The main interface is styled as a hand-drawn physical notebook:
    - Metadata tags highlight provider used (`gemini` or `groq`) and sources cited.
 
 2. **Tab 2: Image Captioning**
+   <br>
+   <img src="ui/web_modern/screenshot_captioning.png" alt="Image Captioning Tab Screenshot" width="800" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 10px 0;">
+   <br>
    - Upload image files via drag-and-drop or file picker.
    - Choose description style (`Descriptive`, `Short`, `Detailed`).
    - View generated caption alongside latency metrics.
    - Click **Learn More via RAG** to query vector knowledge using the caption as context.
 
 3. **Tab 3: Image Generation**
+   <br>
+   <img src="ui/web_modern/screenshot_generation.png" alt="Image Generation Tab Screenshot" width="800" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 10px 0;">
+   <br>
    - Enter descriptive prompts into the image prompt text area.
    - Click **Generate Image** to synthesize new artwork displayed inside a polaroid frame.
 

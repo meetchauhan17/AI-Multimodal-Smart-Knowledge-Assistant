@@ -10,6 +10,14 @@
   [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 </div>
 
+<br>
+
+<div align="center">
+  <img src="ui/web_modern/screenshot.png" alt="Modern Glassmorphism UI Screenshot" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+</div>
+
+<br>
+
 An enterprise-ready, multimodal knowledge platform designed for domain-specific context retrieval, speech interaction, computer vision analysis, and text-to-image artwork synthesis. Built with a resilient multi-provider LLM fallback router, vector-based Retrieval-Augmented Generation (RAG), live web search fallback for real-time events, local speech-to-text (STT), text-to-speech (TTS), and a modern interactive web interface.
 
 ---

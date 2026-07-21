@@ -1,205 +1,184 @@
 <div align="center">
-  <img src="ui/web_modern/favicon.svg" alt="AI Multimodal Smart Knowledge Assistant Logo" width="200" height="200">
-  
-  # AI Multimodal Smart Knowledge Assistant
-
-  [![Python Version](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](https://www.python.org/)
-  [![Framework](https://img.shields.io/badge/Framework-FastAPI%20%7C%20Gradio-green.svg)](https://fastapi.tiangolo.com/)
-  [![LLM Providers](https://img.shields.io/badge/LLM-Gemini%203.5%20Flash%20%7C%20Groq%2070B-purple.svg)](https://deepmind.google/technologies/gemini/)
-  [![RAG Core](https://img.shields.io/badge/RAG-ChromaDB%20%2B%20DuckDuckGo-orange.svg)](https://www.trychroma.com/)
-  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  <img src="ui/web_modern/favicon.svg" alt="AI Multimodal Smart Knowledge Assistant" width="120" height="120">
+  <h1>AI Multimodal Smart Knowledge Assistant</h1>
+  <p>An enterprise-grade multimodal knowledge platform with voice interaction, computer vision, RAG retrieval, and AI image synthesis.</p>
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.11_|_3.12-3776AB?style=flat-square" alt="Python">
+    <img src="https://img.shields.io/badge/FastAPI-0.110+-009688?style=flat-square" alt="FastAPI">
+    <img src="https://img.shields.io/badge/Gradio-4.x-F97316?style=flat-square" alt="Gradio">
+    <img src="https://img.shields.io/badge/LLM-Gemini_|_Groq-8B5CF6?style=flat-square" alt="LLM">
+    <img src="https://img.shields.io/badge/RAG-ChromaDB+DuckDuckGo-E87B35?style=flat-square" alt="RAG">
+    <img src="https://img.shields.io/badge/License-MIT-22C55E?style=flat-square" alt="License">
+  </p>
 </div>
 
-<br>
+---
 
 <div align="center">
-  <img src="ui/web_modern/screenshot.png" alt="Modern Glassmorphism UI Screenshot" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+  <img src="ui/web_modern/screenshot.png" alt="Ask Tab — Main Interface" width="900">
+  <br>
+  <sub>Ask (Text and Voice) — Main Interface</sub>
 </div>
 
-<br>
+---
 
-An enterprise-ready, multimodal knowledge platform designed for domain-specific context retrieval, speech interaction, computer vision analysis, and text-to-image artwork synthesis. Built with a resilient multi-provider LLM fallback router, vector-based Retrieval-Augmented Generation (RAG), live web search fallback for real-time events, local speech-to-text (STT), text-to-speech (TTS), and a modern interactive web interface.
+## Table of Contents
+
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [System Architecture](#system-architecture)
+- [Screenshots](#screenshots)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Application](#running-the-application)
+- [API Reference](#api-reference)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
 ---
 
-## 📑 Table of Contents
+## Overview
 
-- [1. System Overview](#1-system-overview)
-- [2. Architectural Highlights & Key Features](#2-architectural-highlights--key-features)
-- [3. Capstone Requirements Verification Matrix](#3-capstone-requirements-verification-matrix)
-- [4. Detailed System Architecture](#4-detailed-system-architecture)
-- [5. Module Breakdown & Technical Specifications](#5-module-breakdown--technical-specifications)
-- [6. Project Directory Tree](#6-project-directory-tree)
-- [7. Installation & Deployment Guide](#7-installation--deployment-guide)
-- [8. Configuration & Environment Variables](#8-configuration--environment-variables)
-- [9. Running the Application](#9-running-the-application)
-- [10. User Interface Guide](#10-user-interface-guide)
-- [11. API Reference & Code Examples](#11-api-reference--code-examples)
-- [12. Testing & Quality Assurance](#12-testing--quality-assurance)
-- [13. Troubleshooting & Edge Cases](#13-troubleshooting--edge-cases)
-- [14. License](#14-license)
+The **AI Multimodal Smart Knowledge Assistant** integrates local domain intelligence with multi-provider cloud AI. It resolves complex queries across seven pre-indexed knowledge domains — College, Tourism, Healthcare, Agriculture, Library, Museums, and Historical Monuments — while handling both voice and text inputs.
+
+When local vector similarity scores fall below confidence thresholds, the system automatically initiates a **Live Web Search Fallback** via DuckDuckGo, ensuring accurate answers to real-time and current queries.
 
 ---
 
-## 🚀 1. System Overview
+## Key Features
 
-The **AI Multimodal Smart Knowledge Assistant** integrates local domain intelligence with multi-provider generative cloud models. Designed to resolve complex queries across seven pre-indexed domain categories—College, Tourism, Healthcare, Agriculture, Library, Museums, and Historical Monuments—it seamlessly handles voice and text inputs while outputting formatted text and spoken audio.
+### Voice and Text Q&A
 
-When local vector retrieval score metrics fall below configured confidence thresholds (e.g. for real-time news like sports results or current events), the engine dynamically initiates a **Live Web Search Fallback** using DuckDuckGo to provide accurate, up-to-date answers.
+Accepts typed questions or live microphone recordings. Speech is transcribed locally using OpenAI Whisper (`small` model) via FFmpeg, with zero dependency on cloud STT APIs. Answers are synthesised into spoken audio using gTTS.
 
----
+### Dual-Layer Retrieval (RAG + Web)
 
-## ✨ 2. Architectural Highlights & Key Features
+Domain documents are chunked and indexed into a persistent ChromaDB vector store using SentenceTransformer embeddings (`all-MiniLM-L6-v2`). When vector similarity is insufficient, the engine falls back to live DuckDuckGo search with automatic snippet extraction.
 
-### 🎙️ Multimodal Input & Output Processing
-- **Text & Voice Q&A**: Accepts typed natural language input or recorded microphone audio.
-- **Local Speech Recognition (STT)**: Uses local OpenAI Whisper (`base` model) via `ffmpeg` for automatic audio transcription.
-- **Text-to-Speech Synthesis (TTS)**: Converts generated text answers into clear spoken MP3 audio files using `gTTS` with intelligent sentence boundary splitting.
+### Multi-Provider LLM Router
 
-### 🧠 Dual-Layer RAG & Web Search Engine
-- **Vector Document Search**: Ingests domain knowledge documents into a persistent `ChromaDB` vector collection using SentenceTransformer embeddings (`all-MiniLM-L6-v2`).
-- **Domain Auto-Detection**: Automatically identifies relevant document domains or applies explicit user domain filters.
-- **Real-Time Web Search Fallback**: Automatically invokes DuckDuckGo HTML scraping when vector document similarity is low, enabling accurate answers for real-world current events (e.g., FIFA World Cup results, breaking news).
+Requests route to **Google Gemini** (`gemini-flash-latest`) as the primary provider, with automatic failover to **Groq** (`llama-3.3-70b-versatile`) on rate limit or timeout errors. Fully transparent to the user.
 
-### ⚡ Resilient Multi-Provider LLM Router
-- **Primary LLM**: Google Gemini API (`gemini-3.5-flash`) via the `google-genai` SDK.
-- **Fallback LLM**: Groq API (`llama-3.3-70b-versatile`) for sub-second, highly reliable text generation.
-- **Automated Rate Limit Handling**: Catches `RESOURCE_EXHAUSTED` (429) errors or service timeouts and reroutes requests seamlessly without user interruption.
+### Image Captioning
 
-### 🎨 Vision & Creative Image Engine
-- **Image Analysis & Captioning**: Upload images for computer vision analysis with support for three style modes: `Descriptive`, `Short`, and `Detailed`.
-- **RAG Caption Follow-up**: Query the internal vector database using generated image captions as context.
-- **Text-to-Image Generation**: Synthesize original digital artwork from descriptive text prompts using the Pollinations.ai engine with Gemini prompt optimization fallback.
+Upload any image (JPEG, PNG, WEBP) and receive AI-generated descriptions in three style modes: Descriptive, Short, or Detailed. Generated captions can seed follow-up RAG queries.
 
-### 💻 Single-Server Web Architecture
-- **Interactive Web Interface**: Custom web frontend served directly at root `/` implementing Kalam/Patrick Hand typography, paper dot-grid background, and responsive panels.
-- **FastAPI Core Backend**: Single Uvicorn/FastAPI process running on port `7871` serving the user interface and REST API endpoints.
+### Text-to-Image Synthesis
+
+Enter any descriptive prompt and synthesise original digital artwork via the Pollinations.ai engine, with optional Gemini prompt optimization for richer output quality.
+
+### Single-Process Architecture
+
+One FastAPI + Uvicorn process on port `7871` serves both the full frontend UI and all REST and Gradio API endpoints.
 
 ---
 
-## 3. Capstone Requirements Verification Matrix
+## System Architecture
 
-| Module / Requirement | System Component | Primary Technology | Verification Command | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **Module 1(a): LLM Routing & Fallback** | `core/llm_provider.py` | Google Gemini 3.5 Flash / Groq Llama 3.3 70B | `pytest tests/test_llm_provider.py` | COMPLETED |
-| **Module 1(b): Speech-to-Text (STT)** | `modules/speech_to_text.py` | OpenAI Whisper (Local Base Weights) | `pytest tests/test_stt.py` | COMPLETED |
-| **Module 1(d): Text-to-Speech (TTS)** | `modules/text_to_speech.py` | gTTS Engine with Sentence Splitting | `pytest tests/test_tts.py` | COMPLETED |
-| **Module 2(a): Image Captioning** | `modules/image_captioning.py` | Gemini 3.5 Flash Vision / Groq Vision | `pytest tests/test_image_captioning.py` | COMPLETED |
-| **Module 2(b): Image Generation** | `modules/image_generation.py` | Pollinations.ai Image Synthesis Engine | `pytest tests/test_image_generation.py` | COMPLETED |
-| **Module 3: Retrieval-Augmented Gen** | `modules/rag/retriever.py` | ChromaDB + DuckDuckGo Web Fallback | `pytest tests/test_rag.py` | COMPLETED |
-| **Multimodal Orchestrator** | `core/assistant.py` | `MultimodalAssistant` Unified Class | `pytest tests/test_assistant.py` | COMPLETED |
-| **Unified Web Interface** | `ui/gradio_app.py` | FastAPI + Gradio + SketchAgents UI | `python ui/gradio_app.py` | COMPLETED |
-
----
-
-## 4. Detailed System Architecture
-
-```text
-+-----------------------------------------------------------------------------------+
-|                                 USER INPUT LAYER                                  |
-|   +---------------------------------------+   +-------------------------------+   |
-|   |         Typed Text Question           |   |   Audio Recording (.wav/.mp3) |   |
-|   +-------------------+-------------------+   +---------------+---------------+   |
-+-----------------------|-----------------------------------|-----------------------+
-                        |                                   |
-                        |                                   v
-                        |                       +-----------------------+
-                        |                       |   OpenAI Whisper STT  |
-                        |                       +-----------+-----------+
-                        |                                   |
-                        v                                   v
-+-----------------------------------------------------------------------------------+
-|                              RAG & RETRIEVAL LAYER                                |
-|                        +---------------------------------+                        |
-|                        | ChromaDB Vector Similarity Search|                        |
-|                        +----------------+----------------+                        |
-|                                         |                                         |
-|                               +---------+---------+                               |
-|                               | Vector Match Score |                               |
-|                               +----+---------+----+                               |
-|                                    |         |                                    |
-|                      (Above Thresh)|         |(Below Threshold / Current Event)   |
-|                                    v         v                                    |
-|                        +-----------+--+   +--+-------------------+                |
-|                        | Knowledge    |   | DuckDuckGo Live Web  |                |
-|                        | Base Docs    |   | Search Snippets      |                |
-|                        +-----------+--+   +--+-------------------+                |
-|                                    |         |                                    |
-+------------------------------------|---------|------------------------------------+
-                                     v         v
-+-----------------------------------------------------------------------------------+
-|                               LLM ROUTER & FALLBACK                               |
-|                     +---------------------------------------+                     |
-|                     | Primary Provider: Gemini 3.5 Flash    |                     |
-|                     +-------------------+-------------------+                     |
-|                                         | (On 429 / Quota Error)                  |
-|                                         v                                         |
-|                     +---------------------------------------+                     |
-|                     | Fallback Provider: Groq Llama 3.3 70B |                     |
-|                     +-------------------+-------------------+                     |
-+-----------------------------------------|-----------------------------------------+
-                                          v
-+-----------------------------------------------------------------------------------+
-|                                 OUTPUT GENERATION                                 |
-|   +---------------------------------------+   +-------------------------------+   |
-|   |    Formatted Written Markdown Text    |   |  gTTS Speech Audio Synthesis  |   |
-|   +---------------------------------------+   +-------------------------------+   |
-+-----------------------------------------------------------------------------------+
+```
++------------------------------------------------------------------+
+|                        USER INPUT LAYER                          |
+|  +------------------------+     +-----------------------------+  |
+|  |  Typed Text Question   |     |  Audio Recording (.wav)     |  |
+|  +----------+-------------+     +-------------+---------------+  |
++-------------|------------------------------- -|------------------+
+              |                               |
+              |                               v
+              |                  +------------------------+
+              |                  |  OpenAI Whisper STT    |
+              |                  |  (Local — small model) |
+              |                  +----------+-------------+
+              |                             |
+              v                             v
++------------------------------------------------------------------+
+|                     RAG & RETRIEVAL LAYER                        |
+|             +------------------------------+                     |
+|             |  ChromaDB Vector Store       |                     |
+|             |  (SentenceTransformer Embed) |                     |
+|             +---------------+--------------+                     |
+|                             |                                    |
+|           +-----------------+------------------+                 |
+|       High Score                           Low Score             |
+|           |                                    |                 |
+|           v                                    v                 |
+|  +------------------+          +---------------------------+    |
+|  |  Knowledge Base  |          |  DuckDuckGo Live Web      |    |
+|  |  (Local Docs)    |          |  Search Fallback           |    |
+|  +---------+--------+          +-----------+---------------+    |
++------------|------------------------------|---------------------+
+             |                              |
+             v                              v
++------------------------------------------------------------------+
+|                      LLM ROUTER & FALLBACK                       |
+|         +------------------------------------------+            |
+|         |  Primary:   Google Gemini Flash           |            |
+|         +--------------------+---------------------+            |
+|                       (on 429 / timeout)                         |
+|                              v                                   |
+|         +------------------------------------------+            |
+|         |  Fallback:  Groq Llama 3.3 70B            |            |
+|         +--------------------+---------------------+            |
++------------------------------------------------------------------+
+                              |
+                              v
++------------------------------------------------------------------+
+|                       OUTPUT GENERATION                          |
+|  +-----------------------------+  +---------------------------+  |
+|  |  Formatted Markdown Text    |  |  gTTS Audio MP3 File      |  |
+|  +-----------------------------+  +---------------------------+  |
++------------------------------------------------------------------+
 ```
 
 ---
 
-## 5. Module Breakdown & Technical Specifications
+## Screenshots
 
-### `core/llm_provider.py` — Resilient Provider Router
-- Implements `LLMProvider` managing model invocations across Gemini and Groq.
-- Uses `google-genai` SDK for Gemini interactions (`gemini-3.5-flash`).
-- Uses `groq` SDK for Groq interactions (`llama-3.3-70b-versatile`).
-- Features explicit exception handling: when Gemini encounters `RESOURCE_EXHAUSTED` (Rate limit / Quota exceeded), execution seamlessly falls back to Groq in under 100ms.
+### Ask — Text and Voice Query
 
-### `modules/rag/` — Vector Storage & Retrieval
-- **`ingestion.py`**: Scans `data/knowledge_base/`, splits document text into normalized chunks (default chunk size: 500 characters with 50 character overlap), and indexes vectors in `ChromaDB`.
-- **`retriever.py`**: Performs semantic search using cosine similarity distance. If vector search results yield low relevance scores, the system automatically calls `modules/web_search.py` to retrieve live web search snippets and injects them as prompt context.
+<div align="center">
+  <img src="ui/web_modern/screenshot_qna.png" alt="Ask Tab Interface" width="900">
+</div>
 
-### `modules/web_search.py` — Live Search Fallback
-- Executes lightweight queries against DuckDuckGo HTML endpoint without third-party API keys.
-- Parses snippet text using `BeautifulSoup4` and normalizes response content for injection into the LLM system prompt.
-
-### `modules/speech_to_text.py` — Audio Transcription
-- Uses local `openai-whisper` (`base` model weights).
-- Converts input audio files (WAV, MP3, OGG, M4A) via `pydub` and `ffmpeg` before running model inference.
-- Automatically handles temporary file cleanup.
-
-### `modules/text_to_speech.py` — Audio Synthesis
-- Converts text responses into spoken voice using Google Text-to-Speech (`gTTS`).
-- Splits long text passages into clause-level sentences to prevent synthesis timeouts and ensures natural speech pauses.
-- Concatenates audio segments using `pydub` into a final MP3 file saved in `temp_audio/`.
-
-### `modules/image_captioning.py` — Vision Analysis
-- Accepts image files (JPEG, PNG, WEBP) and decodes raw image bytes.
-- Transmits image payloads to Gemini 3.5 Flash Vision or Groq Vision models.
-- Formats analysis outputs according to selected style parameter (`Descriptive`, `Short`, `Detailed`).
-
-### `modules/image_generation.py` — Image Synthesis
-- Connects to Pollinations.ai REST service to generate images from textual prompts.
-- Saves generated images to `generated_images/` directory and returns file paths for display in UI frames.
+Type any question or click **Click to Record** to use your microphone. Select a domain filter or use Auto-detect. The assistant responds with formatted text and synthesised speech audio.
 
 ---
 
-## 6. Project Directory Tree
+### Image Captioning
 
-```text
+<div align="center">
+  <img src="ui/web_modern/screenshot_captioning.png" alt="Image Captioning Tab" width="900">
+</div>
+
+Drag and drop any image to generate an AI caption in Descriptive, Short, or Detailed mode. Use **Learn More via RAG** to search your knowledge base using the caption as context.
+
+---
+
+### AI Image Generation
+
+<div align="center">
+  <img src="ui/web_modern/screenshot_generation.png" alt="Image Generation Tab" width="900">
+</div>
+
+Enter any descriptive prompt to synthesise original digital artwork. The generated image renders directly inside the UI canvas.
+
+---
+
+## Project Structure
+
+```
 multimodal-knowledge-assistant/
 ├── config/
 │   ├── __init__.py
 │   └── settings.py              # Pydantic BaseSettings config loader
 ├── core/
-│   ├── assistant.py             # MultimodalAssistant unified orchestrator
-│   ├── llm_provider.py          # Provider router (Gemini 3.5 Flash -> Groq)
-│   ├── logger.py                # Loguru log configuration (console & rotating files)
-│   └── schemas.py               # Pydantic schemas for data consistency
+│   ├── assistant.py             # MultimodalAssistant orchestrator
+│   ├── llm_provider.py          # Provider router (Gemini to Groq)
+│   ├── logger.py                # Loguru log config
+│   └── schemas.py               # Pydantic schemas
 ├── data/
-│   └── knowledge_base/          # Source documents across 7 domain categories
+│   └── knowledge_base/          # Source documents across 7 domains
 │       ├── agriculture/
 │       ├── college/
 │       ├── healthcare/
@@ -208,23 +187,21 @@ multimodal-knowledge-assistant/
 │       ├── museums/
 │       └── tourism/
 ├── modules/
-│   ├── __init__.py
 │   ├── image_captioning.py      # Vision analysis engine
-│   ├── image_generation.py      # Text-to-image synthesis module
-│   ├── speech_to_text.py        # Local Whisper STT module
-│   ├── text_to_speech.py        # gTTS audio synthesis module
-│   ├── web_search.py            # Live DuckDuckGo web search engine
+│   ├── image_generation.py      # Text-to-image synthesis
+│   ├── speech_to_text.py        # Local Whisper STT
+│   ├── text_to_speech.py        # gTTS audio synthesis
+│   ├── web_search.py            # Live DuckDuckGo search
 │   └── rag/
-│       ├── __init__.py
-│       ├── ingestion.py          # Document chunking & ChromaDB vector indexing
-│       └── retriever.py         # Vector similarity search & web fallback logic
+│       ├── ingestion.py         # Document chunking and ChromaDB indexing
+│       └── retriever.py         # Vector search and web fallback logic
 ├── ui/
-│   ├── gradio_app.py            # Unified FastAPI + Gradio server entrypoint
-│   └── web_modern/              # SketchAgents Notebook Frontend
+│   ├── gradio_app.py            # Unified FastAPI + Gradio server entry
+│   └── web_modern/
 │       ├── app.js               # Gradio JS Client integration
-│       ├── index.html           # Notebook layout HTML structure
-│       └── style.css            # Hand-drawn design system & tokens
-├── tests/                       # Complete pytest unit & integration test suite
+│       ├── index.html           # Notebook layout HTML
+│       └── style.css            # Hand-drawn design system
+├── tests/
 │   ├── conftest.py
 │   ├── test_assistant.py
 │   ├── test_end_to_end.py
@@ -233,284 +210,204 @@ multimodal-knowledge-assistant/
 │   ├── test_rag.py
 │   ├── test_stt.py
 │   └── test_tts.py
-├── .env.example                 # Environment variables template
-├── .gitignore                   # Git exclusion configuration
-├── README.md                    # System documentation
-├── requirements.txt             # Main dependencies
-└── verify_llm.py                # Direct provider diagnostic tool
+├── .env.example
+├── requirements.txt
+└── verify_llm.py
 ```
 
 ---
 
-## 7. Installation & Deployment Guide
+## Installation
 
 ### Prerequisites
-- **Python**: Version 3.11 or 3.12 installed.
-- **Git**: Version control system.
-- **FFmpeg**: Required for audio slicing and transcription format conversion.
 
-### Step 1: Install FFmpeg
+- Python 3.11 or 3.12
+- Git
+- FFmpeg (required for audio transcription)
 
-- **Windows**:
-  1. Download build from [ffmpeg.org](https://ffmpeg.org/download.html).
-  2. Extract files to `C:\ffmpeg`.
-  3. Add `C:\ffmpeg\bin` to System Environment Variables under `Path`.
-  4. Verify installation in command prompt: `ffmpeg -version`.
+### Step 1 — Install FFmpeg
 
-- **macOS**:
-  ```bash
-  brew install ffmpeg
-  ```
+**Windows:**
 
-- **Linux (Ubuntu / Debian)**:
-  ```bash
-  sudo apt update && sudo apt install -y ffmpeg
-  ```
+1. Download from [ffmpeg.org](https://ffmpeg.org/download.html) and extract to `C:\ffmpeg`.
+2. Add `C:\ffmpeg\bin` to your system `Path` environment variable.
+3. Verify: `ffmpeg -version`
 
-### Step 2: Clone Repository & Setup Environment
+**macOS:**
 
 ```bash
-# Clone the repository
+brew install ffmpeg
+```
+
+**Linux (Ubuntu / Debian):**
+
+```bash
+sudo apt update && sudo apt install -y ffmpeg
+```
+
+### Step 2 — Clone and Setup
+
+```bash
 git clone https://github.com/meetchauhan17/AI-Multimodal-Smart-Knowledge-Assistant.git
 cd AI-Multimodal-Smart-Knowledge-Assistant
 
-# Create virtual environment
 python -m venv .venv
 
-# Activate virtual environment
-# On Windows (PowerShell):
+# Windows (PowerShell)
 .\.venv\Scripts\Activate.ps1
 
-# On Windows (Command Prompt):
-.\.venv\Scripts\activate.bat
-
-# On macOS / Linux:
+# macOS / Linux
 source .venv/bin/activate
 
-# Upgrade package manager
-python -m pip install --upgrade pip
-
-# Install project dependencies
 pip install -r requirements.txt
 ```
 
 ---
 
-## 8. Configuration & Environment Variables
+## Configuration
 
-Copy `.env.example` to create `.env` in the root folder:
+Copy the environment template and populate your API keys:
 
 ```bash
 cp .env.example .env
 ```
 
-Populate the required credentials in `.env`:
-
 ```env
-# -----------------------------------------------------------------------------
-# LLM PROVIDER CREDENTIALS & MODEL SELECTION
-# -----------------------------------------------------------------------------
-
-# Google Gemini API Settings (Primary)
+# Google Gemini — Primary LLM Provider
 GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-3.5-flash
-GEMINI_VISION_MODEL=gemini-3.5-flash
+GEMINI_MODEL=gemini-flash-latest
+GEMINI_VISION_MODEL=gemini-flash-latest
 
-# Groq API Settings (Fallback)
+# Groq — Fallback LLM Provider
 GROQ_API_KEY=your_groq_api_key_here
 GROQ_MODEL=llama-3.3-70b-versatile
 
-# Routing Priority Order
+# Routing
 PRIMARY_PROVIDER=gemini
 FALLBACK_ORDER=gemini,groq
 
-# -----------------------------------------------------------------------------
-# APPLICATION SETTINGS
-# -----------------------------------------------------------------------------
+# Application Paths
 LOG_LEVEL=INFO
 VECTOR_DB_PATH=data/vector_db
 TEMP_AUDIO_DIR=temp_audio
 GENERATED_IMAGES_DIR=generated_images
 ```
 
+Get your Gemini key at [aistudio.google.com](https://aistudio.google.com/). Get your free Groq key at [console.groq.com](https://console.groq.com/).
+
 ---
 
-## 9. Running the Application
-
-Start the unified application server with a single command:
+## Running the Application
 
 ```bash
 python ui/gradio_app.py
 ```
 
-Upon execution, the server starts directly on port 7871:
+The server starts on port `7871`:
 
-```text
-2026-07-21 19:33:47 | INFO | Starting AI Multimodal Smart Knowledge Assistant on http://127.0.0.1:7871...
-═══════════════════════════════════════════════════════════
-  AI Multimodal Smart Knowledge Assistant  →  http://127.0.0.1:7871
-═══════════════════════════════════════════════════════════
-INFO:     Started server process
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://127.0.0.1:7871 (Press CTRL+C to quit)
+```
+INFO | Starting AI Multimodal Smart Knowledge Assistant on http://127.0.0.1:7871
+INFO | Application startup complete.
+INFO | Uvicorn running on http://127.0.0.1:7871 (Press CTRL+C to quit)
 ```
 
-Access point in your web browser:
-- **Hand-Drawn Notebook UI (Main Interface)**: `http://127.0.0.1:7871`
+Open your browser at: **http://127.0.0.1:7871**
 
 ---
 
-## 10. User Interface Guide
+## API Reference
 
-### AI Multimodal Knowledge Assistant UI (Root `/`)
+The Gradio backend exposes the following endpoints at `/gradio`:
 
-The main interface is styled as a hand-drawn physical notebook:
+| Endpoint | Input | Output |
+|:---|:---|:---|
+| `/gradio/api/handle_ask` | `[question, audio_file, domain]` | `[question, answer, audio_path, sources, provider]` |
+| `/gradio/api/handle_caption` | `[image_file, style]` | `[caption, provider, latency, error]` |
+| `/gradio/api/handle_caption_followup` | `[caption]` | `[answer, sources]` |
+| `/gradio/api/handle_image_gen` | `[prompt]` | `[image_path, provider, error]` |
 
-1. **Tab 1: Ask (Text & Voice)**
-   - Type questions into the question text area or click **Click to Record** to record voice input via microphone.
-   - Select domain filter (e.g. `College`, `Tourism`, `Healthcare`, `Auto-detect`).
-   - Click **Submit Question** to generate a written answer on a sticky-note card and listen to the audio output player.
-   - Metadata tags highlight provider used (`gemini` or `groq`) and sources cited.
-
-2. **Tab 2: Image Captioning**
-   <br>
-   <img src="ui/web_modern/screenshot_captioning.png" alt="Image Captioning Tab Screenshot" width="800" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 10px 0;">
-   <br>
-   - Upload image files via drag-and-drop or file picker.
-   - Choose description style (`Descriptive`, `Short`, `Detailed`).
-   - View generated caption alongside latency metrics.
-   - Click **Learn More via RAG** to query vector knowledge using the caption as context.
-
-3. **Tab 3: Image Generation**
-   <br>
-   <img src="ui/web_modern/screenshot_generation.png" alt="Image Generation Tab Screenshot" width="800" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 10px 0;">
-   <br>
-   - Enter descriptive prompts into the image prompt text area.
-   - Click **Generate Image** to synthesize new artwork displayed inside a polaroid frame.
-
----
-
-## 11. API Reference & Code Examples
-
-### Endpoint Index
-
-| Endpoint Name | Path | Description | Input Payload | Output Data Array |
-| :--- | :--- | :--- | :--- | :--- |
-| `handle_ask` | `/gradio/api/handle_ask` | Multimodal Voice & Text Q&A | `[question, audio_file, domain]` | `[ret_question, answer, audio_path, sources, provider]` |
-| `handle_caption` | `/gradio/api/handle_caption` | Image Analysis & Captioning | `[image_file, style]` | `[caption, provider, latency, error]` |
-| `handle_caption_followup` | `/gradio/api/handle_caption_followup` | Vector RAG from Caption | `[caption]` | `[answer, sources]` |
-| `handle_image_gen` | `/gradio/api/handle_image_gen` | Text-to-Image Synthesis | `[prompt]` | `[image_path, provider, error]` |
-
-### Code Example: Python Client Integration
-
-Using the official `gradio_client` to call the backend API natively:
+### Python Client
 
 ```python
 from gradio_client import Client
 
-# Connect to the Gradio API mounted at /gradio
 client = Client("http://127.0.0.1:7871/gradio")
 
-# Execute the Q&A pipeline
 result = client.predict(
-    question="Who won FIFA 2026?",
+    question="What are the symptoms of dengue fever?",
     audio_path=None,
-    domain_label="Auto-detect",
+    domain_label="Healthcare",
     api_name="/handle_ask"
 )
 
-returned_question, answer, audio_url, sources, provider = result
-print("Provider:", provider)
-print("Answer:", answer)
-print("Audio File:", audio_url)
+question, answer, audio_url, sources, provider = result
+print(f"Provider: {provider}")
+print(f"Answer:   {answer}")
 ```
 
-### Code Example: JavaScript Client Integration
-
-Using `@gradio/client` in browser applications:
+### JavaScript Client
 
 ```javascript
 import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client";
 
-async function askQuestion() {
-  const client = await Client.connect("http://127.0.0.1:7871/gradio");
-  
-  const result = await client.predict("/handle_ask", {
-    question: "What are the college admission requirements?",
-    audio_path: null,
-    domain_label: "College"
-  });
+const client = await Client.connect("http://127.0.0.1:7871/gradio");
 
-  const [question, answer, audioPath, sources, provider] = result.data;
-  console.log("Answer:", answer);
-  console.log("Provider Used:", provider);
-}
+const result = await client.predict("/handle_ask", {
+  question: "What are college admission requirements?",
+  audio_path: null,
+  domain_label: "College"
+});
 
-askQuestion();
+const [question, answer, audioPath, sources, provider] = result.data;
+console.log("Answer:", answer);
 ```
 
 ---
 
-## 12. Testing & Quality Assurance
+## Testing
 
-The codebase includes an extensive suite of 29 automated test cases covering unit logic, failure modes, and end-to-end integration flows.
-
-### Execute Entire Test Suite
+The test suite covers 29 automated test cases across unit, integration, and end-to-end scenarios.
 
 ```bash
+# Run the full test suite
 python -m pytest tests/ -v
-```
 
-### Execute Specific Test Modules
-
-```bash
-# Test LLM provider fallback logic (Gemini -> Groq)
-python -m pytest tests/test_llm_provider.py -v
-
-# Test RAG retrieval and live web search fallback
+# Run individual modules
 python -m pytest tests/test_rag.py -v
-
-# Test Speech-to-Text Whisper integration
 python -m pytest tests/test_stt.py -v
-
-# Test Text-to-Speech audio generation
 python -m pytest tests/test_tts.py -v
-
-# Test vision image captioning
 python -m pytest tests/test_image_captioning.py -v
-
-# Test text-to-image synthesis
 python -m pytest tests/test_image_generation.py -v
-
-# Test MultimodalAssistant orchestrator
 python -m pytest tests/test_assistant.py -v
-
-# Test end-to-end user workflows
 python -m pytest tests/test_end_to_end.py -v
 ```
 
----
-
-## 13. Troubleshooting & Edge Cases
-
-### 1. `FileNotFoundError` or `pydub` Warnings for FFmpeg
-- **Symptom**: Error messages stating `ffmpeg` or `ffprobe` was not found.
-- **Solution**: Ensure FFmpeg is installed and `ffmpeg/bin` path is added to your system environment variables. Verify by executing `ffmpeg -version` in command prompt.
-
-### 2. ChromaDB Database File Locking
-- **Symptom**: `sqlite3.OperationalError: database is locked`.
-- **Solution**: Avoid running `pytest` concurrently with a running `python ui/gradio_app.py` process. Exit the application server before initiating automated test runs.
-
-### 3. Gemini API Rate Limiting (`RESOURCE_EXHAUSTED` / 429 Error)
-- **Symptom**: Console logs show `google.genai.errors.APIError: 429 RESOURCE_EXHAUSTED`.
-- **Solution**: The internal `LLMProvider` automatically routes requests to Groq (`llama-3.3-70b-versatile`). No manual intervention is needed. To use a different Gemini model, set `GEMINI_MODEL=gemini-1.5-flash` in your `.env` file.
-
-### 4. Microphone Input Not Recording in Browser
-- **Symptom**: Clicking microphone button produces no audio data or error alert.
-- **Solution**: Ensure browser permissions grant microphone access to `http://127.0.0.1:7871`.
+> **Note:** Stop the running server before executing tests. Both the app and pytest share the ChromaDB SQLite database and cannot run concurrently.
 
 ---
 
-## 14. License
+## Troubleshooting
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+**FFmpeg not found / pydub errors**
+Ensure FFmpeg is installed and `ffmpeg/bin` is in your system `Path`. Run `ffmpeg -version` to verify.
+
+**ChromaDB locked** (`sqlite3.OperationalError: database is locked`)
+Do not run `pytest` while `gradio_app.py` is running. Both processes share the same SQLite file.
+
+**Gemini 429 / RESOURCE_EXHAUSTED**
+The `LLMProvider` router automatically falls back to Groq — no action required. To switch models, set `GEMINI_MODEL=gemini-1.5-flash` in `.env`.
+
+**Microphone not recording in browser**
+Ensure your browser has granted microphone access to `http://127.0.0.1:7871` in site permissions.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for full details.
+
+---
+
+<div align="center">
+  <sub>Built with Python · FastAPI · Gradio · ChromaDB · OpenAI Whisper · Google Gemini · Groq &nbsp;|&nbsp; Capstone Project 2026</sub>
+</div>

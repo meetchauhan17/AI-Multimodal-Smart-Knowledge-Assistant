@@ -1,14 +1,15 @@
+<!-- New Concept 7: Geometric 'A' Monogram with Floating Spark -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <linearGradient id="g7-hex" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0284C7"/><stop offset="100%" stop-color="#6366F1"/></linearGradient>
+    <linearGradient id="n7-a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF007F"/>
+      <stop offset="100%" stop-color="#7928CA"/>
+    </linearGradient>
   </defs>
-  <polygon points="256,60 420,155 420,355 256,450 92,355 92,155" fill="none" stroke="url(#g7-hex)" stroke-width="18" stroke-linejoin="round"/>
-  <polygon points="256,140 350,195 350,315 256,370 162,315 162,195" fill="url(#g7-hex)" opacity="0.85"/>
-  <polygon points="256,200 290,256 256,312 222,256" fill="#FBBF24"/>
-  <circle cx="256" cy="60" r="14" fill="#38BDF8"/>
-  <circle cx="420" cy="155" r="14" fill="#38BDF8"/>
-  <circle cx="420" cy="355" r="14" fill="#38BDF8"/>
-  <circle cx="256" cy="450" r="14" fill="#38BDF8"/>
-  <circle cx="92" cy="355" r="14" fill="#38BDF8"/>
-  <circle cx="92" cy="155" r="14" fill="#38BDF8"/>
+  <!-- Overlapping Gradient Ribbons for 'A' -->
+  <path d="M 120 400 L 256 110 L 392 400" fill="none" stroke="url(#n7-a)" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Crossbar wave -->
+  <path d="M 175 300 H 337" stroke="#38BDF8" stroke-width="22" stroke-linecap="round"/>
+  <!-- Floating Top Intelligence Spark -->
+  <circle cx="256" cy="110" r="14" fill="#FBBF24"/>
 </svg>

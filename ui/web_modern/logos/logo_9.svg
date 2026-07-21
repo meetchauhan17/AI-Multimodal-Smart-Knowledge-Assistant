@@ -1,23 +1,20 @@
+<!-- New Concept 9: AI Wave Crest Badge -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <linearGradient id="iconic-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00F2FE" />
-      <stop offset="50%" stop-color="#6366F1" />
-      <stop offset="100%" stop-color="#FF007F" />
+    <linearGradient id="n9-crest" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#312E81"/>
     </linearGradient>
-
-    <linearGradient id="inner-glow-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#A855F7" />
+    <linearGradient id="n9-wave" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#F43F5E"/>
     </linearGradient>
-
-    <filter id="ambient-glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
   </defs>
-
-  <path d="M 96 380 V 180 C 96 110, 160 110, 196 160 L 256 248 L 316 160 C 352 110, 416 110, 416 180 V 380" fill="none" stroke="url(#iconic-gradient)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" filter="url(#ambient-glow)" />
-  <path d="M 120 370 V 185 C 120 135, 160 135, 190 170 L 256 262 L 322 170 C 352 135, 392 135, 392 185 V 370" fill="none" stroke="url(#inner-glow-grad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
-  <path d="M 256 90 L 268 122 L 300 134 L 268 146 L 256 178 L 244 146 L 212 134 L 244 122 Z" fill="#FFFFFF" filter="url(#ambient-glow)" />
+  <!-- Circular Badge Plate -->
+  <circle cx="256" cy="256" r="200" fill="url(#n9-crest)" stroke="#6366F1" stroke-width="14"/>
+  <!-- Sine Wave Overlay -->
+  <path d="M 96 256 Q 176 150 256 256 T 416 256" fill="none" stroke="url(#n9-wave)" stroke-width="24" stroke-linecap="round"/>
+  <path d="M 96 256 Q 176 362 256 256 T 416 256" fill="none" stroke="url(#n9-wave)" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+  <!-- Central Spark -->
+  <circle cx="256" cy="256" r="24" fill="#FBBF24"/>
 </svg>

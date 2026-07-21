@@ -1,7 +1,17 @@
+<!-- New Concept 8: Hexagonal Knowledge Cube -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <ellipse cx="256" cy="256" rx="200" ry="70" fill="none" stroke="#2563EB" stroke-width="14" transform="rotate(-30 256 256)"/>
-  <ellipse cx="256" cy="256" rx="200" ry="70" fill="none" stroke="#D97706" stroke-width="14" transform="rotate(30 256 256)"/>
-  <ellipse cx="256" cy="256" rx="200" ry="70" fill="none" stroke="#059669" stroke-width="14" transform="rotate(90 256 256)"/>
-  <circle cx="256" cy="256" r="48" fill="#7C3AED" stroke="#2D2D2D" stroke-width="8"/>
-  <circle cx="256" cy="256" r="20" fill="#FFF"/>
+  <defs>
+    <linearGradient id="n8-hex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- Hexagon Outer Border -->
+  <polygon points="256,64 416,160 416,352 256,448 96,352 96,160" fill="none" stroke="url(#n8-hex)" stroke-width="22" stroke-linejoin="round"/>
+  <!-- Internal Cube Edges -->
+  <line x1="256" y1="64" x2="256" y2="448" stroke="url(#n8-hex)" stroke-width="14"/>
+  <line x1="96" y1="160" x2="416" y2="352" stroke="url(#n8-hex)" stroke-width="14"/>
+  <line x1="416" y1="160" x2="96" y2="352" stroke="url(#n8-hex)" stroke-width="14"/>
+  <!-- Glowing Center Nucleus -->
+  <circle cx="256" cy="256" r="32" fill="#F59E0B"/>
 </svg>

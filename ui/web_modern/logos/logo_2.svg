@@ -1,12 +1,23 @@
+<!-- New Concept 2: Neural Crest Eye & Soundwave Equalizer -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <linearGradient id="g2-cyan" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00F2FE"/><stop offset="100%" stop-color="#4FACFE"/></linearGradient>
-    <linearGradient id="g2-purp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#B5179E"/><stop offset="100%" stop-color="#7209B7"/></linearGradient>
-    <linearGradient id="g2-gold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFB703"/><stop offset="100%" stop-color="#FB8500"/></linearGradient>
+    <linearGradient id="n2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE"/>
+      <stop offset="100%" stop-color="#4FACFE"/>
+    </linearGradient>
+    <linearGradient id="n2-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB703"/>
+      <stop offset="100%" stop-color="#FB8500"/>
+    </linearGradient>
   </defs>
-  <path d="M256 64 L416 160 L256 256 L96 160 Z" fill="url(#g2-cyan)"/>
-  <path d="M256 256 L416 160 L416 352 L256 448 Z" fill="url(#g2-purp)"/>
-  <path d="M96 160 L256 256 L256 448 L96 352 Z" fill="url(#g2-gold)"/>
-  <path d="M256 64 V448 M96 160 L416 352 M416 160 L96 352" stroke="#FFF" stroke-width="5" opacity="0.4"/>
-  <path d="M256 196 L270 242 L316 256 L270 270 L256 316 L242 270 L196 256 L242 242 Z" fill="#FFF"/>
+  <!-- Eye Contour Arcs -->
+  <path d="M 80 256 Q 256 110 432 256" fill="none" stroke="url(#n2-grad)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M 80 256 Q 256 402 432 256" fill="none" stroke="url(#n2-grad)" stroke-width="20" stroke-linecap="round"/>
+  <!-- Soundwave Equalizer Iris Bars inside Iris -->
+  <rect x="186" y="226" width="14" height="60" rx="7" fill="url(#n2-orange)"/>
+  <rect x="214" y="196" width="14" height="120" rx="7" fill="url(#n2-orange)"/>
+  <rect x="242" y="170" width="14" height="172" rx="7" fill="#FFFFFF"/>
+  <rect x="270" y="170" width="14" height="172" rx="7" fill="#FFFFFF"/>
+  <rect x="298" y="196" width="14" height="120" rx="7" fill="url(#n2-orange)"/>
+  <rect x="326" y="226" width="14" height="60" rx="7" fill="url(#n2-orange)"/>
 </svg>

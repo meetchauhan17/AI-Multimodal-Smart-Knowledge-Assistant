@@ -338,10 +338,10 @@ python ui/gradio_app.py
 Upon execution, the server starts directly on port 7871:
 
 ```text
-2026-07-21 19:33:47 | INFO | Starting Hand-Drawn Notebook UI Server on http://127.0.0.1:7871...
-===================================================
-  Hand-Drawn Notebook UI  ->  http://127.0.0.1:7871
-===================================================
+2026-07-21 19:33:47 | INFO | Starting AI Multimodal Smart Knowledge Assistant on http://127.0.0.1:7871...
+═══════════════════════════════════════════════════════════
+  AI Multimodal Smart Knowledge Assistant  →  http://127.0.0.1:7871
+═══════════════════════════════════════════════════════════
 INFO:     Started server process
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:7871 (Press CTRL+C to quit)
@@ -354,7 +354,7 @@ Access point in your web browser:
 
 ## 10. User Interface Guide
 
-### SketchAgents Notebook UI (`/ui/`)
+### AI Multimodal Knowledge Assistant UI (Root `/`)
 
 The main interface is styled as a hand-drawn physical notebook:
 
@@ -389,30 +389,26 @@ The main interface is styled as a hand-drawn physical notebook:
 
 ### Code Example: Python Client Integration
 
-Using `requests` to call the running backend API:
+Using the official `gradio_client` to call the backend API natively:
 
 ```python
-import requests
+from gradio_client import Client
 
-SERVER_URL = "http://127.0.0.1:7871/gradio/api/handle_ask"
+# Connect to the Gradio API mounted at /gradio
+client = Client("http://127.0.0.1:7871/gradio")
 
-payload = {
-    "data": [
-        "Who won FIFA 2026?",  # Question string
-        None,                  # Audio file path (None if text-only)
-        "Auto-detect"          # Domain dropdown selection
-    ]
-}
+# Execute the Q&A pipeline
+result = client.predict(
+    question="Who won FIFA 2026?",
+    audio_path=None,
+    domain_label="Auto-detect",
+    api_name="/handle_ask"
+)
 
-response = requests.post(SERVER_URL, json=payload)
-if response.status_code == 200:
-    result = response.json()
-    returned_question, answer, audio_url, sources, provider = result["data"]
-    print("Provider:", provider)
-    print("Answer:", answer)
-    print("Audio File:", audio_url)
-else:
-    print("Error:", response.status_code, response.text)
+returned_question, answer, audio_url, sources, provider = result
+print("Provider:", provider)
+print("Answer:", answer)
+print("Audio File:", audio_url)
 ```
 
 ### Code Example: JavaScript Client Integration
@@ -425,11 +421,11 @@ import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client";
 async function askQuestion() {
   const client = await Client.connect("http://127.0.0.1:7871/gradio");
   
-  const result = await client.predict("/handle_ask", [
-    "What are the college admission requirements?", // Question
-    null,                                          // Voice recording file
-    "College"                                      // Domain filter
-  ]);
+  const result = await client.predict("/handle_ask", {
+    question: "What are the college admission requirements?",
+    audio_path: null,
+    domain_label: "College"
+  });
 
   const [question, answer, audioPath, sources, provider] = result.data;
   console.log("Answer:", answer);
@@ -437,20 +433,6 @@ async function askQuestion() {
 }
 
 askQuestion();
-```
-
-### Code Example: cURL Command
-
-```bash
-curl -X POST "http://127.0.0.1:7871/gradio/api/handle_ask" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "data": [
-         "What are health tips for staying fit?",
-         null,
-         "Healthcare"
-       ]
-     }'
 ```
 
 ---

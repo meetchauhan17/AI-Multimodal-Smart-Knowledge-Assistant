@@ -6,7 +6,7 @@
 [![RAG Core](https://img.shields.io/badge/RAG-ChromaDB%20%2B%20DuckDuckGo-orange.svg)](https://www.trychroma.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-An enterprise-ready, multimodal knowledge platform designed for domain-specific context retrieval, speech interaction, computer vision analysis, and text-to-image artwork synthesis. Built with a resilient multi-provider LLM fallback router, vector-based Retrieval-Augmented Generation (RAG), live web search fallback for real-time events, local speech-to-text (STT), text-to-speech (TTS), and dual web interfaces (FastAPI + Gradio).
+An enterprise-ready, multimodal knowledge platform designed for domain-specific context retrieval, speech interaction, computer vision analysis, and text-to-image artwork synthesis. Built with a resilient multi-provider LLM fallback router, vector-based Retrieval-Augmented Generation (RAG), live web search fallback for real-time events, local speech-to-text (STT), text-to-speech (TTS), and the Hand-Drawn Notebook UI.
 
 ---
 
@@ -333,26 +333,20 @@ Start the unified application server with a single command:
 python ui/gradio_app.py
 ```
 
-Upon execution, the terminal log displays server configuration routes:
+Upon execution, the server starts directly on port 7871:
 
 ```text
-2026-07-21 19:20:51 | INFO | Starting Unified Server (Notebook UI + Gradio API)...
-2026-07-21 19:20:51 | INFO | Notebook UI mounted at /ui/
-2026-07-21 19:20:51 | INFO | Gradio app mounted at /gradio
-===================================================================
-  Notebook UI  ->  http://127.0.0.1:7871/
-  Gradio UI    ->  http://127.0.0.1:7871/gradio
-  Gradio API   ->  http://127.0.0.1:7871/gradio/api/...
-===================================================================
-INFO:     Started server process [16820]
+2026-07-21 19:33:47 | INFO | Starting Hand-Drawn Notebook UI Server on http://127.0.0.1:7871...
+===================================================
+  Hand-Drawn Notebook UI  ->  http://127.0.0.1:7871
+===================================================
+INFO:     Started server process
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:7871 (Press CTRL+C to quit)
 ```
 
-Access points in your web browser:
-- **Notebook UI (Default)**: `http://127.0.0.1:7871/` or `http://127.0.0.1:7871/ui/`
-- **Gradio Classic UI**: `http://127.0.0.1:7871/gradio`
-- **OpenAPI Schema**: `http://127.0.0.1:7871/docs`
+Access point in your web browser:
+- **Hand-Drawn Notebook UI (Main Interface)**: `http://127.0.0.1:7871`
 
 ---
 

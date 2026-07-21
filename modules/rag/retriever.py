@@ -179,12 +179,13 @@ def answer_with_rag(query: str, domain: str | None = None) -> Dict[str, Any]:
         context_text = "\n\n".join(context_parts)
 
         system_instruction = (
-            "You are a helpful smart assistant for a multimodal knowledge base. "
-            "Answer the user's question using the facts provided in the Context block below. "
+            "You are an expert, highly accurate multimodal knowledge assistant. "
+            "Answer the user's question explicitly based on the provided Context block. "
             "Rules:\n"
-            "1. Prefer context facts over general knowledge.\n"
-            "2. If the context partially covers the question, combine it with brief general knowledge.\n"
-            "3. Keep your response factual, helpful, and direct."
+            "1. Rely strictly on the context facts.\n"
+            "2. If the context does not contain the answer, you must clearly state that you do not know instead of guessing.\n"
+            "3. Do not invent or hallucinate information.\n"
+            "4. Keep your response factual, concise, and highly accurate."
         )
         user_prompt = f"Context:\n{context_text}\n\nQuestion: {query}"
         logger.info(f"RAG mode: best relevance score {best_score:.3f} >= {RELEVANCE_THRESHOLD}. Using knowledge-base context.")
@@ -201,17 +202,19 @@ def answer_with_rag(query: str, domain: str | None = None) -> Dict[str, Any]:
             web_context_text = "\n\n".join(web_context_parts)
 
             system_instruction = (
-                "You are a helpful, knowledgeable assistant with live web search capabilities. "
-                "Answer the user's question accurately using the live web search results provided below. "
-                "Be direct, informative, and summarize the key facts clearly."
+                "You are an expert, highly accurate assistant with live web search capabilities. "
+                "Answer the user's question using ONLY the live web search results provided below. "
+                "If the search results do not provide a clear answer or if the query is nonsensical, state that you cannot find a reliable answer. "
+                "Be direct, informative, and summarize the key facts clearly without hallucinations."
             )
             user_prompt = f"Live Web Search Context:\n{web_context_text}\n\nQuestion: {query}"
             logger.info(f"Live web search context added with {len(web_results)} snippets.")
         else:
             system_instruction = (
-                "You are a helpful, knowledgeable assistant. "
-                "Answer the user's question accurately and concisely using your general knowledge. "
-                "Be informative and friendly."
+                "You are a highly accurate, expert knowledge assistant. "
+                "Answer the user's question factually and concisely using your general knowledge. "
+                "If the question is gibberish or you are unsure, state that you do not understand or do not know. "
+                "Do not hallucinate or guess."
             )
             user_prompt = query
 
@@ -221,7 +224,7 @@ def answer_with_rag(query: str, domain: str | None = None) -> Dict[str, Any]:
         response = provider.generate(
             prompt=user_prompt,
             system=system_instruction,
-            temperature=0.2  # slight creativity for general answers
+            temperature=0.0  # zero temperature for maximum accuracy and zero hallucinations
         )
         return {
             "answer": response.text,

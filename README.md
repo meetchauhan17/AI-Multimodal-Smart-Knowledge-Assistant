@@ -22,7 +22,7 @@ An enterprise-ready, multimodal knowledge platform designed for domain-specific 
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
 - [1. System Overview](#1-system-overview)
 - [2. Architectural Highlights & Key Features](#2-architectural-highlights--key-features)
@@ -41,7 +41,7 @@ An enterprise-ready, multimodal knowledge platform designed for domain-specific 
 
 ---
 
-## 1. System Overview
+## 🚀 1. System Overview
 
 The **AI Multimodal Smart Knowledge Assistant** integrates local domain intelligence with multi-provider generative cloud models. Designed to resolve complex queries across seven pre-indexed domain categories—College, Tourism, Healthcare, Agriculture, Library, Museums, and Historical Monuments—it seamlessly handles voice and text inputs while outputting formatted text and spoken audio.
 
@@ -49,29 +49,29 @@ When local vector retrieval score metrics fall below configured confidence thres
 
 ---
 
-## 2. Architectural Highlights & Key Features
+## ✨ 2. Architectural Highlights & Key Features
 
-### Multimodal Input & Output Processing
+### 🎙️ Multimodal Input & Output Processing
 - **Text & Voice Q&A**: Accepts typed natural language input or recorded microphone audio.
 - **Local Speech Recognition (STT)**: Uses local OpenAI Whisper (`base` model) via `ffmpeg` for automatic audio transcription.
 - **Text-to-Speech Synthesis (TTS)**: Converts generated text answers into clear spoken MP3 audio files using `gTTS` with intelligent sentence boundary splitting.
 
-### Dual-Layer RAG & Web Search Engine
+### 🧠 Dual-Layer RAG & Web Search Engine
 - **Vector Document Search**: Ingests domain knowledge documents into a persistent `ChromaDB` vector collection using SentenceTransformer embeddings (`all-MiniLM-L6-v2`).
 - **Domain Auto-Detection**: Automatically identifies relevant document domains or applies explicit user domain filters.
 - **Real-Time Web Search Fallback**: Automatically invokes DuckDuckGo HTML scraping when vector document similarity is low, enabling accurate answers for real-world current events (e.g., FIFA World Cup results, breaking news).
 
-### Resilient Multi-Provider LLM Router
+### ⚡ Resilient Multi-Provider LLM Router
 - **Primary LLM**: Google Gemini API (`gemini-3.5-flash`) via the `google-genai` SDK.
 - **Fallback LLM**: Groq API (`llama-3.3-70b-versatile`) for sub-second, highly reliable text generation.
 - **Automated Rate Limit Handling**: Catches `RESOURCE_EXHAUSTED` (429) errors or service timeouts and reroutes requests seamlessly without user interruption.
 
-### Vision & Creative Image Engine
+### 🎨 Vision & Creative Image Engine
 - **Image Analysis & Captioning**: Upload images for computer vision analysis with support for three style modes: `Descriptive`, `Short`, and `Detailed`.
 - **RAG Caption Follow-up**: Query the internal vector database using generated image captions as context.
 - **Text-to-Image Generation**: Synthesize original digital artwork from descriptive text prompts using the Pollinations.ai engine with Gemini prompt optimization fallback.
 
-### Single-Server Web Architecture
+### 💻 Single-Server Web Architecture
 - **Interactive Web Interface**: Custom web frontend served directly at root `/` implementing Kalam/Patrick Hand typography, paper dot-grid background, and responsive panels.
 - **FastAPI Core Backend**: Single Uvicorn/FastAPI process running on port `7871` serving the user interface and REST API endpoints.
 
@@ -230,7 +230,6 @@ multimodal-knowledge-assistant/
 │   ├── test_end_to_end.py
 │   ├── test_image_captioning.py
 │   ├── test_image_generation.py
-│   ├── test_llm_provider.py
 │   ├── test_rag.py
 │   ├── test_stt.py
 │   └── test_tts.py

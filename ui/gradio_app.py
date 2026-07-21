@@ -341,58 +341,6 @@ def build_app() -> gr.Blocks:
 
 
 if __name__ == "__main__":
-    import uvicorn
-    from pathlib import Path
-    from fastapi import FastAPI
-    from fastapi.staticfiles import StaticFiles
-    from fastapi.responses import RedirectResponse
-    from fastapi.middleware.cors import CORSMiddleware
-
-    logger.info("Starting Unified Server (Notebook UI + Gradio API)...")
-
-    # ── 1. Create the FastAPI shell ──────────────────────────────────────
-    server = FastAPI(title="AI Multimodal Smart Knowledge Assistant")
-
-    # Allow cross-origin requests (for local dev)
-    server.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-
-    # ── 2. Root redirect → Notebook UI ───────────────────────────────────
-    @server.get("/")
-    async def root():
-        return RedirectResponse("/ui/")
-
-    # ── 3. Mount static Notebook UI ──────────────────────────────────────
-    notebook_dir = Path(__file__).parent / "web_modern"
-    if notebook_dir.is_dir():
-        server.mount(
-            "/ui",
-            StaticFiles(directory=str(notebook_dir), html=True),
-            name="notebook_ui",
-        )
-        logger.info(f"Notebook UI mounted at /ui/ from {notebook_dir}")
-    else:
-        logger.warning(f"Notebook UI directory not found: {notebook_dir}")
-
-    # ── 4. Build & mount Gradio at /gradio ───────────────────────────────
-    blocks = build_app()
-    server = gr.mount_gradio_app(
-        server,
-        blocks,
-        path="/gradio",
-        app_kwargs={"default_config": blocks.config},
-    )
-    logger.info("Gradio app mounted at /gradio")
-
-    # ── 5. Run unified server ────────────────────────────────────────────
-    logger.info("═══════════════════════════════════════════════════════════")
-    logger.info("  Notebook UI  →  http://127.0.0.1:7871/")
-    logger.info("  Gradio UI    →  http://127.0.0.1:7871/gradio")
-    logger.info("  Gradio API   →  http://127.0.0.1:7871/gradio/api/...")
-    logger.info("═══════════════════════════════════════════════════════════")
-
-    uvicorn.run(server, host="127.0.0.1", port=7871)
+    logger.info("Starting Gradio Web Application UI...")
+    app = build_app()
+    app.launch(server_name="127.0.0.1", server_port=7871, share=False, theme=custom_theme)

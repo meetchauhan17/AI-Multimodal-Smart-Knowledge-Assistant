@@ -1,36 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <linearGradient id="m-ribbon-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="iconic-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#00F2FE" />
-      <stop offset="35%" stop-color="#3B82F6" />
-      <stop offset="70%" stop-color="#8B5CF6" />
-      <stop offset="100%" stop-color="#EC4899" />
+      <stop offset="50%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#FF007F" />
     </linearGradient>
 
-    <linearGradient id="m-ribbon-secondary" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F59E0B" />
-      <stop offset="50%" stop-color="#EF4444" />
-      <stop offset="100%" stop-color="#8B5CF6" />
+    <linearGradient id="inner-glow-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#A855F7" />
     </linearGradient>
 
-    <linearGradient id="spark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#FDE047" />
-    </linearGradient>
-
-    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
+    <filter id="ambient-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
-  <path d="M 100 256 A 156 156 0 1 1 412 256" fill="none" stroke="url(#m-ribbon-primary)" stroke-width="8" stroke-linecap="round" stroke-dasharray="24 14" opacity="0.65" />
-  <path d="M 88 390 V 160 C 88 120, 150 120, 180 160 L 256 270 L 332 160 C 362 120, 424 120, 424 160 V 390" fill="none" stroke="url(#m-ribbon-primary)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" filter="url(#neon-glow)" />
-  <path d="M 180 160 L 256 270 L 332 160" fill="none" stroke="url(#m-ribbon-secondary)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
-  <g filter="url(#neon-glow)">
-    <path d="M 256 80 L 268 112 L 300 124 L 268 136 L 256 168 L 244 136 L 212 124 L 244 112 Z" fill="url(#spark-grad)" />
-  </g>
-  <circle cx="88" cy="390" r="18" fill="#00F2FE" stroke="#FFFFFF" stroke-width="6" />
-  <circle cx="424" cy="390" r="18" fill="#EC4899" stroke="#FFFFFF" stroke-width="6" />
-  <circle cx="256" cy="270" r="12" fill="#FDE047" stroke="#2D2D2D" stroke-width="4" />
+  <path d="M 96 380 V 180 C 96 110, 160 110, 196 160 L 256 248 L 316 160 C 352 110, 416 110, 416 180 V 380" fill="none" stroke="url(#iconic-gradient)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" filter="url(#ambient-glow)" />
+  <path d="M 120 370 V 185 C 120 135, 160 135, 190 170 L 256 262 L 322 170 C 352 135, 392 135, 392 185 V 370" fill="none" stroke="url(#inner-glow-grad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+  <path d="M 256 90 L 268 122 L 300 134 L 268 146 L 256 178 L 244 146 L 212 134 L 244 122 Z" fill="#FFFFFF" filter="url(#ambient-glow)" />
 </svg>

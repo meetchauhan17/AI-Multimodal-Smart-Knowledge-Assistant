@@ -15,9 +15,33 @@
 ---
 
 <div align="center">
-  <img src="screenshot/2.png" alt="Ask Tab — Main Interface" width="900">
-  <br>
-  <sub>Ask (Text and Voice) — Main Interface</sub>
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="screenshot/2.png" alt="Ask — Text and Voice Query" width="270">
+      <br>
+      <b>Ask — Text &amp; Voice Query</b>
+      <br>
+      <sub>Type or record your question. The assistant answers with text and speech audio.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="screenshot/3.png" alt="Image Captioning" width="270">
+      <br>
+      <b>Image Captioning</b>
+      <br>
+      <sub>Upload any image and generate AI captions. Follow up with a RAG knowledge query.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="screenshot/1.png" alt="AI Image Generation" width="270">
+      <br>
+      <b>AI Image Generation</b>
+      <br>
+      <sub>Enter a text prompt to synthesise original digital artwork.</sub>
+    </td>
+  </tr>
+</table>
+
 </div>
 
 ---
@@ -27,7 +51,6 @@
 - [Overview](#overview)
 - [Key Features](#key-features)
 - [System Architecture](#system-architecture)
-- [Screenshots](#screenshots)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -133,39 +156,6 @@ One FastAPI + Uvicorn process on port `7871` serves both the full frontend UI an
 
 ---
 
-## Screenshots
-
-<div align="center">
-
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="screenshot/2.png" alt="Ask — Text and Voice Query" width="270">
-      <br>
-      <b>Ask — Text &amp; Voice Query</b>
-      <br>
-      <sub>Type or record your question. The assistant answers with text and speech audio.</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="screenshot/3.png" alt="Image Captioning" width="270">
-      <br>
-      <b>Image Captioning</b>
-      <br>
-      <sub>Upload any image and generate AI captions. Follow up with a RAG knowledge query.</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="screenshot/1.png" alt="AI Image Generation" width="270">
-      <br>
-      <b>AI Image Generation</b>
-      <br>
-      <sub>Enter a text prompt to synthesise original digital artwork.</sub>
-    </td>
-  </tr>
-</table>
-
-</div>
-
----
 
 ## Project Structure
 

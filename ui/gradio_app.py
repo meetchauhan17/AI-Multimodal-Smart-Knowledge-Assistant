@@ -341,6 +341,44 @@ def build_app() -> gr.Blocks:
 
 
 if __name__ == "__main__":
-    logger.info("Starting Gradio Web Application UI...")
-    app = build_app()
-    app.launch(server_name="127.0.0.1", server_port=7871, share=False, theme=custom_theme)
+    import uvicorn
+    from pathlib import Path
+    from fastapi import FastAPI
+    from fastapi.staticfiles import StaticFiles
+    from fastapi.middleware.cors import CORSMiddleware
+
+    logger.info("Starting Hand-Drawn Notebook UI Server on http://127.0.0.1:7871...")
+
+    server = FastAPI(title="AI Multimodal Smart Knowledge Assistant")
+
+    server.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    # 1. Mount Gradio API backend at /gradio
+    blocks = build_app()
+    server = gr.mount_gradio_app(
+        server,
+        blocks,
+        path="/gradio",
+        app_kwargs={"default_config": blocks.config},
+    )
+
+    # 2. Serve static Notebook UI directly at root /
+    notebook_dir = Path(__file__).parent / "web_modern"
+    if notebook_dir.is_dir():
+        server.mount(
+            "/",
+            StaticFiles(directory=str(notebook_dir), html=True),
+            name="notebook_ui",
+        )
+        logger.info(f"Notebook UI mounted directly at / from {notebook_dir}")
+
+    logger.info("═══════════════════════════════════════════════════════════")
+    logger.info("  Hand-Drawn Notebook UI  →  http://127.0.0.1:7871")
+    logger.info("═══════════════════════════════════════════════════════════")
+
+    uvicorn.run(server, host="127.0.0.1", port=7871)

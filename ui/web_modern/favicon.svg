@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Modern Gradient Palette -->
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#EF4444" />
+    </linearGradient>
+
+    <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Transparent Background (No background box) -->
+
+  <!-- Outer Multimodal Knowledge Orbit Rings -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="url(#cyan-grad)" stroke-width="14" stroke-dasharray="24 16" opacity="0.85" />
+  <circle cx="256" cy="256" r="175" fill="none" stroke="url(#primary-grad)" stroke-width="10" opacity="0.4" />
+
+  <!-- Core AI Brain Shield Body -->
+  <path d="M256 70 L370 130 V260 C370 340 315 405 256 435 C197 405 142 340 142 260 V130 Z" 
+        fill="url(#primary-grad)" 
+        stroke="#2D2D2D" 
+        stroke-width="12" 
+        stroke-linejoin="round" />
+
+  <!-- Central Multimodal Nodes & Connections -->
+  <!-- Soundwave Bar (Audio / Speech STT/TTS) Left -->
+  <rect x="180" y="230" width="16" height="50" rx="8" fill="#FFFFFF" />
+  <rect x="204" y="200" width="16" height="110" rx="8" fill="url(#accent-grad)" />
+
+  <!-- Central AI Eye Lens / Vision Node Center -->
+  <circle cx="256" cy="255" r="42" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="8" />
+  <circle cx="256" cy="255" r="22" fill="url(#accent-grad)" />
+  <circle cx="264" cy="247" r="7" fill="#FFFFFF" />
+
+  <!-- Soundwave Bar Right -->
+  <rect x="292" y="200" width="16" height="110" rx="8" fill="url(#accent-grad)" />
+  <rect x="316" y="230" width="16" height="50" rx="8" fill="#FFFFFF" />
+
+  <!-- Top Intelligence Spark Star -->
+  <path d="M256 120 L264 140 L284 148 L264 156 L256 176 L248 156 L228 148 L248 140 Z" fill="url(#accent-grad)" />
+
+  <!-- Bottom Knowledge Book Motif Base -->
+  <path d="M190 350 Q256 330 322 350 V375 Q256 355 190 375 Z" fill="#FFFFFF" opacity="0.9" />
+
+  <!-- Floating Multimodal Sparkles -->
+  <circle cx="115" cy="140" r="14" fill="url(#accent-grad)" />
+  <circle cx="395" cy="140" r="14" fill="url(#cyan-grad)" />
+  <circle cx="100" cy="310" r="10" fill="url(#cyan-grad)" />
+  <circle cx="412" cy="310" r="10" fill="url(#accent-grad)" />
+</svg>

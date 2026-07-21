@@ -1,13 +1,24 @@
-<!-- UI Matching Concept 3: Sketch Multimodal Voice & Vision Badge -->
+<!-- Option 3: 7-Domain Knowledge Wheel & AI Core -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Badge Circle -->
+  <!-- Outer Wheel Circle -->
   <circle cx="256" cy="256" r="190" fill="#fdfbf7" stroke="#2d2d2d" stroke-width="14"/>
-  <!-- Eye Lens Contour -->
-  <path d="M 120 256 Q 256 130 392 256 Q 256 382 120 256 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
-  <!-- Iris Circle -->
-  <circle cx="256" cy="256" r="60" fill="#2d5da1" stroke="#2d2d2d" stroke-width="8"/>
-  <circle cx="256" cy="256" r="22" fill="#fff"/>
-  <!-- Soundwave Bars Side -->
-  <rect x="75" y="236" width="14" height="40" rx="7" fill="#e74c3c" stroke="#2d2d2d" stroke-width="5"/>
-  <rect x="423" y="236" width="14" height="40" rx="7" fill="#e74c3c" stroke="#2d2d2d" stroke-width="5"/>
+  <!-- 7 Spokes for 7 Knowledge Domains -->
+  <line x1="256" y1="256" x2="256" y2="70" stroke="#2d5da1" stroke-width="8"/>
+  <line x1="256" y1="256" x2="410" y2="140" stroke="#2d5da1" stroke-width="8"/>
+  <line x1="256" y1="256" x2="435" y2="300" stroke="#2d5da1" stroke-width="8"/>
+  <line x1="256" y1="256" x2="335" y2="430" stroke="#2d5da1" stroke-width="8"/>
+  <line x1="256" y1="256" x2="177" y2="430" stroke="#2d5da1" stroke-width="8"/>
+  <line x1="256" y1="256" x2="77" y2="300" stroke="#2d5da1" stroke-width="8"/>
+  <line x1="256" y1="256" x2="102" y2="140" stroke="#2d5da1" stroke-width="8"/>
+  <!-- Domain Node Dots -->
+  <circle cx="256" cy="70" r="14" fill="#e74c3c" stroke="#2d2d2d" stroke-width="4"/>
+  <circle cx="410" cy="140" r="14" fill="#fff9c4" stroke="#2d2d2d" stroke-width="4"/>
+  <circle cx="435" cy="300" r="14" fill="#16a34a" stroke="#2d2d2d" stroke-width="4"/>
+  <circle cx="335" cy="430" r="14" fill="#e74c3c" stroke="#2d2d2d" stroke-width="4"/>
+  <circle cx="177" cy="430" r="14" fill="#fff9c4" stroke="#2d2d2d" stroke-width="4"/>
+  <circle cx="77" cy="300" r="14" fill="#16a34a" stroke="#2d2d2d" stroke-width="4"/>
+  <circle cx="102" cy="140" r="14" fill="#2d5da1" stroke="#2d2d2d" stroke-width="4"/>
+  <!-- Central AI Core -->
+  <circle cx="256" cy="256" r="48" fill="#fff9c4" stroke="#2d2d2d" stroke-width="10"/>
+  <circle cx="256" cy="256" r="20" fill="#2d2d2d"/>
 </svg>

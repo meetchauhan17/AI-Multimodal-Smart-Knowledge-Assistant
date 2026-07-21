@@ -1,8 +1,11 @@
-<!-- UI Matching Concept 8: Notebook Atom & Signal Orbits -->
+<!-- Option 8: Multimodal Monogram M (Mic + Eye + Page) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <ellipse cx="256" cy="256" rx="190" ry="75" fill="none" stroke="#2d2d2d" stroke-width="12" transform="rotate(-30 256 256)"/>
-  <ellipse cx="256" cy="256" rx="190" ry="75" fill="none" stroke="#2d5da1" stroke-width="12" transform="rotate(30 256 256)"/>
-  <ellipse cx="256" cy="256" rx="190" ry="75" fill="none" stroke="#e74c3c" stroke-width="12" transform="rotate(90 256 256)"/>
-  <circle cx="256" cy="256" r="50" fill="#fff9c4" stroke="#2d2d2d" stroke-width="10"/>
-  <circle cx="256" cy="256" r="22" fill="#2d2d2d"/>
+  <!-- Sticky Yellow Box -->
+  <rect x="90" y="90" width="332" height="332" rx="30" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14"/>
+  <!-- Ink "M" Stroke -->
+  <path d="M 150 360 V 160 L 256 280 L 362 160 V 360" fill="none" stroke="#2d2d2d" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eye Lens Pupil (Right Apex) -->
+  <circle cx="362" cy="160" r="14" fill="#2d5da1" stroke="#2d2d2d" stroke-width="5"/>
+  <!-- Mic Knob (Left Apex) -->
+  <circle cx="150" cy="160" r="14" fill="#e74c3c" stroke="#2d2d2d" stroke-width="5"/>
 </svg>

@@ -1,10 +1,18 @@
-<!-- UI Matching Concept 2: Hand-Drawn Notebook Brain & Sparkle -->
+<!-- Option 2: Capstone Smart Assistant Robot Head -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Brain Shape Outline -->
-  <path d="M 170 150 C 90 170, 80 310, 170 370 C 220 400, 290 400, 342 370 C 432 310, 422 170, 342 150 C 290 120, 220 120, 170 150 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14" stroke-linejoin="round"/>
-  <!-- Internal Brain Folds -->
-  <path d="M 170 230 Q 256 180 342 230" fill="none" stroke="#2d5da1" stroke-width="10" stroke-linecap="round"/>
-  <path d="M 190 300 Q 256 340 322 300" fill="none" stroke="#2d5da1" stroke-width="10" stroke-linecap="round"/>
-  <!-- Central Sparkle Star -->
-  <path d="M 256 160 L 268 200 L 308 212 L 268 224 L 256 264 L 244 224 L 204 212 L 244 200 Z" fill="#e74c3c" stroke="#2d2d2d" stroke-width="6"/>
+  <!-- Top Antenna Pin -->
+  <line x1="256" y1="130" x2="256" y2="70" stroke="#2d2d2d" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="256" cy="60" r="18" fill="#e74c3c" stroke="#2d2d2d" stroke-width="8"/>
+  <!-- Head Box -->
+  <rect x="120" y="130" width="272" height="250" rx="35" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14" stroke-linejoin="round"/>
+  <!-- Visor -->
+  <rect x="155" y="175" width="202" height="110" rx="20" fill="#2d5da1" stroke="#2d2d2d" stroke-width="10"/>
+  <!-- Eyes -->
+  <circle cx="210" cy="230" r="22" fill="#fff" stroke="#2d2d2d" stroke-width="6"/>
+  <circle cx="302" cy="230" r="22" fill="#fff" stroke="#2d2d2d" stroke-width="6"/>
+  <circle cx="214" cy="226" r="8" fill="#2d2d2d"/>
+  <circle cx="306" cy="226" r="8" fill="#2d2d2d"/>
+  <!-- Headset Microphone Arc -->
+  <path d="M100 250 C100 370 190 390 240 390" fill="none" stroke="#e74c3c" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="240" cy="390" r="14" fill="#e74c3c" stroke="#2d2d2d" stroke-width="5"/>
 </svg>

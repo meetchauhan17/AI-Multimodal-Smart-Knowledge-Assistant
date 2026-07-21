@@ -1,9 +1,11 @@
-<!-- UI Matching Concept 7: Overlapping Sketch Speech Bubble & Vision Lens -->
+<!-- Option 7: Notebook Sticky-Note & AI Brain Spark -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Speech Bubble (Audio) -->
-  <path d="M 120 160 C 120 110, 300 110, 300 160 C 300 210, 240 230, 200 230 L 160 270 V 230 C 130 230, 120 200, 120 160 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
-  <!-- Camera Lens (Vision) -->
-  <circle cx="330" cy="310" r="100" fill="#2d5da1" stroke="#2d2d2d" stroke-width="12"/>
-  <circle cx="330" cy="310" r="45" fill="#fff" stroke="#2d2d2d" stroke-width="8"/>
-  <circle cx="330" cy="310" r="20" fill="#e74c3c"/>
+  <!-- Tape Strip Top -->
+  <rect x="180" y="45" width="152" height="40" rx="6" fill="rgba(232,218,185,0.9)" stroke="#2d2d2d" stroke-width="4" transform="rotate(-3 256 65)"/>
+  <!-- Sticky Note Box -->
+  <rect x="100" y="70" width="312" height="370" rx="25" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14"/>
+  <!-- Sketch Brain Outline -->
+  <path d="M 180 200 C 130 210, 120 310, 180 350 C 220 370, 290 370, 332 350 C 392 310, 382 210, 332 200 C 290 180, 220 180, 180 200 Z" fill="none" stroke="#2d2d2d" stroke-width="12"/>
+  <!-- Red Pin -->
+  <circle cx="370" cy="110" r="14" fill="#e74c3c" stroke="#2d2d2d" stroke-width="5"/>
 </svg>

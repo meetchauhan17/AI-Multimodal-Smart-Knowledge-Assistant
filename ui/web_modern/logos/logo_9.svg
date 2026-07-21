@@ -1,11 +1,11 @@
-<!-- UI Matching Concept 9: Hand-Drawn Monogram M Badge with Yellow Tape -->
+<!-- Option 9: Capstone Knowledge Torch & Digital Book -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Yellow Tape Strip at Top -->
-  <rect x="180" y="45" width="152" height="40" rx="6" fill="rgba(232,218,185,0.9)" stroke="#2d2d2d" stroke-width="4" transform="rotate(-3 256 65)"/>
-  <!-- Sticky Note Box -->
-  <rect x="100" y="70" width="312" height="370" rx="25" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14"/>
-  <!-- Ink "M" Stroke -->
-  <path d="M 150 370 V 160 L 256 290 L 362 160 V 370" fill="none" stroke="#2d2d2d" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Blue Underline -->
-  <path d="M 150 400 H 362" stroke="#2d5da1" stroke-width="14" stroke-linecap="round"/>
+  <!-- Open Book Base -->
+  <path d="M 256 260 C 180 220, 100 240, 70 270 V 420 C 100 390, 180 370, 256 410 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M 256 260 C 332 220, 412 240, 442 270 V 420 C 412 390, 332 370, 256 410 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Torch Handle -->
+  <rect x="242" y="200" width="28" height="120" rx="8" fill="#2d5da1" stroke="#2d2d2d" stroke-width="8"/>
+  <!-- Flame Plasma Top -->
+  <path d="M 256 60 C 290 110, 310 150, 256 190 C 202 150, 222 110, 256 60 Z" fill="#e74c3c" stroke="#2d2d2d" stroke-width="8"/>
+  <circle cx="256" cy="130" r="14" fill="#fff"/>
 </svg>

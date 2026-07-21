@@ -1,24 +1,13 @@
-<!-- New Concept 3: Quantum Brain Lattice -->
+<!-- UI Matching Concept 3: Sketch Multimodal Voice & Vision Badge -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="n3-brain" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8B5CF6"/>
-      <stop offset="100%" stop-color="#C084FC"/>
-    </linearGradient>
-  </defs>
-  <!-- Brain Hemisphere Lobes -->
-  <path d="M 170 150 C 100 180 100 300 170 360 C 210 390 250 360 250 256 C 250 150 210 120 170 150 Z" fill="none" stroke="url(#n3-brain)" stroke-width="14" stroke-linecap="round"/>
-  <path d="M 342 150 C 412 180 412 300 342 360 C 302 390 262 360 262 256 C 262 150 302 120 342 150 Z" fill="none" stroke="url(#n3-brain)" stroke-width="14" stroke-linecap="round"/>
-  <!-- Synaptic Lattice Connections -->
-  <line x1="170" y1="150" x2="342" y2="150" stroke="#38BDF8" stroke-width="8"/>
-  <line x1="140" y1="256" x2="372" y2="256" stroke="#38BDF8" stroke-width="8"/>
-  <line x1="170" y1="360" x2="342" y2="360" stroke="#38BDF8" stroke-width="8"/>
-  <!-- Glowing Synapse Nodes -->
-  <circle cx="256" cy="150" r="14" fill="#F59E0B"/>
-  <circle cx="256" cy="256" r="18" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="6"/>
-  <circle cx="256" cy="360" r="14" fill="#F59E0B"/>
-  <circle cx="170" cy="150" r="10" fill="#38BDF8"/>
-  <circle cx="342" cy="150" r="10" fill="#38BDF8"/>
-  <circle cx="170" cy="360" r="10" fill="#38BDF8"/>
-  <circle cx="342" cy="360" r="10" fill="#38BDF8"/>
+  <!-- Badge Circle -->
+  <circle cx="256" cy="256" r="190" fill="#fdfbf7" stroke="#2d2d2d" stroke-width="14"/>
+  <!-- Eye Lens Contour -->
+  <path d="M 120 256 Q 256 130 392 256 Q 256 382 120 256 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Iris Circle -->
+  <circle cx="256" cy="256" r="60" fill="#2d5da1" stroke="#2d2d2d" stroke-width="8"/>
+  <circle cx="256" cy="256" r="22" fill="#fff"/>
+  <!-- Soundwave Bars Side -->
+  <rect x="75" y="236" width="14" height="40" rx="7" fill="#e74c3c" stroke="#2d2d2d" stroke-width="5"/>
+  <rect x="423" y="236" width="14" height="40" rx="7" fill="#e74c3c" stroke="#2d2d2d" stroke-width="5"/>
 </svg>

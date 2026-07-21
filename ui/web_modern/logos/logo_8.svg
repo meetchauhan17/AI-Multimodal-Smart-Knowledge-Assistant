@@ -1,17 +1,8 @@
-<!-- New Concept 8: Hexagonal Knowledge Cube -->
+<!-- UI Matching Concept 8: Notebook Atom & Signal Orbits -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="n8-hex" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4F46E5"/>
-      <stop offset="100%" stop-color="#06B6D4"/>
-    </linearGradient>
-  </defs>
-  <!-- Hexagon Outer Border -->
-  <polygon points="256,64 416,160 416,352 256,448 96,352 96,160" fill="none" stroke="url(#n8-hex)" stroke-width="22" stroke-linejoin="round"/>
-  <!-- Internal Cube Edges -->
-  <line x1="256" y1="64" x2="256" y2="448" stroke="url(#n8-hex)" stroke-width="14"/>
-  <line x1="96" y1="160" x2="416" y2="352" stroke="url(#n8-hex)" stroke-width="14"/>
-  <line x1="416" y1="160" x2="96" y2="352" stroke="url(#n8-hex)" stroke-width="14"/>
-  <!-- Glowing Center Nucleus -->
-  <circle cx="256" cy="256" r="32" fill="#F59E0B"/>
+  <ellipse cx="256" cy="256" rx="190" ry="75" fill="none" stroke="#2d2d2d" stroke-width="12" transform="rotate(-30 256 256)"/>
+  <ellipse cx="256" cy="256" rx="190" ry="75" fill="none" stroke="#2d5da1" stroke-width="12" transform="rotate(30 256 256)"/>
+  <ellipse cx="256" cy="256" rx="190" ry="75" fill="none" stroke="#e74c3c" stroke-width="12" transform="rotate(90 256 256)"/>
+  <circle cx="256" cy="256" r="50" fill="#fff9c4" stroke="#2d2d2d" stroke-width="10"/>
+  <circle cx="256" cy="256" r="22" fill="#2d2d2d"/>
 </svg>

@@ -1,20 +1,11 @@
-<!-- New Concept 9: AI Wave Crest Badge -->
+<!-- UI Matching Concept 9: Hand-Drawn Monogram M Badge with Yellow Tape -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="n9-crest" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E1B4B"/>
-      <stop offset="100%" stop-color="#312E81"/>
-    </linearGradient>
-    <linearGradient id="n9-wave" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38BDF8"/>
-      <stop offset="100%" stop-color="#F43F5E"/>
-    </linearGradient>
-  </defs>
-  <!-- Circular Badge Plate -->
-  <circle cx="256" cy="256" r="200" fill="url(#n9-crest)" stroke="#6366F1" stroke-width="14"/>
-  <!-- Sine Wave Overlay -->
-  <path d="M 96 256 Q 176 150 256 256 T 416 256" fill="none" stroke="url(#n9-wave)" stroke-width="24" stroke-linecap="round"/>
-  <path d="M 96 256 Q 176 362 256 256 T 416 256" fill="none" stroke="url(#n9-wave)" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
-  <!-- Central Spark -->
-  <circle cx="256" cy="256" r="24" fill="#FBBF24"/>
+  <!-- Yellow Tape Strip at Top -->
+  <rect x="180" y="45" width="152" height="40" rx="6" fill="rgba(232,218,185,0.9)" stroke="#2d2d2d" stroke-width="4" transform="rotate(-3 256 65)"/>
+  <!-- Sticky Note Box -->
+  <rect x="100" y="70" width="312" height="370" rx="25" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14"/>
+  <!-- Ink "M" Stroke -->
+  <path d="M 150 370 V 160 L 256 290 L 362 160 V 370" fill="none" stroke="#2d2d2d" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Blue Underline -->
+  <path d="M 150 400 H 362" stroke="#2d5da1" stroke-width="14" stroke-linecap="round"/>
 </svg>

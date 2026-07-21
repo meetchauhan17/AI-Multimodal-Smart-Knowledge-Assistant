@@ -1,15 +1,9 @@
-<!-- New Concept 7: Geometric 'A' Monogram with Floating Spark -->
+<!-- UI Matching Concept 7: Overlapping Sketch Speech Bubble & Vision Lens -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="n7-a" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF007F"/>
-      <stop offset="100%" stop-color="#7928CA"/>
-    </linearGradient>
-  </defs>
-  <!-- Overlapping Gradient Ribbons for 'A' -->
-  <path d="M 120 400 L 256 110 L 392 400" fill="none" stroke="url(#n7-a)" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Crossbar wave -->
-  <path d="M 175 300 H 337" stroke="#38BDF8" stroke-width="22" stroke-linecap="round"/>
-  <!-- Floating Top Intelligence Spark -->
-  <circle cx="256" cy="110" r="14" fill="#FBBF24"/>
+  <!-- Speech Bubble (Audio) -->
+  <path d="M 120 160 C 120 110, 300 110, 300 160 C 300 210, 240 230, 200 230 L 160 270 V 230 C 130 230, 120 200, 120 160 Z" fill="#fff9c4" stroke="#2d2d2d" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Camera Lens (Vision) -->
+  <circle cx="330" cy="310" r="100" fill="#2d5da1" stroke="#2d2d2d" stroke-width="12"/>
+  <circle cx="330" cy="310" r="45" fill="#fff" stroke="#2d2d2d" stroke-width="8"/>
+  <circle cx="330" cy="310" r="20" fill="#e74c3c"/>
 </svg>

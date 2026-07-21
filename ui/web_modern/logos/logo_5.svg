@@ -1,23 +1,7 @@
-<!-- New Concept 5: Cyber Robot Sphere with Visor -->
+<!-- UI Matching Concept 5: Wobbly Hexagon Neural Crest -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="n5-head" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E293B"/>
-      <stop offset="100%" stop-color="#0F172A"/>
-    </linearGradient>
-    <linearGradient id="n5-visor" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00F2FE"/>
-      <stop offset="100%" stop-color="#4FACFE"/>
-    </linearGradient>
-  </defs>
-  <!-- Sphere Head Contour -->
-  <circle cx="256" cy="256" r="180" fill="url(#n5-head)" stroke="#38BDF8" stroke-width="14"/>
-  <!-- Curved Panoramic Visor Lens -->
-  <path d="M 110 240 Q 256 160 402 240 Q 402 280 402 280 Q 256 310 110 280 Z" fill="url(#n5-visor)"/>
-  <!-- Dual Glowing Vision Pupil Nodes -->
-  <circle cx="200" cy="250" r="16" fill="#FFFFFF"/>
-  <circle cx="312" cy="250" r="16" fill="#FFFFFF"/>
-  <!-- Side Ear Antennas -->
-  <rect x="56" y="220" width="20" height="70" rx="10" fill="#F59E0B"/>
-  <rect x="436" y="220" width="20" height="70" rx="10" fill="#F59E0B"/>
+  <polygon points="256,60 420,155 420,355 256,450 92,355 92,155" fill="#fff9c4" stroke="#2d2d2d" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="256,150 340,198 340,302 256,350 172,302 172,198" fill="#2d5da1" stroke="#2d2d2d" stroke-width="8"/>
+  <circle cx="256" cy="250" r="28" fill="#e74c3c" stroke="#2d2d2d" stroke-width="6"/>
+  <circle cx="256" cy="250" r="10" fill="#fff"/>
 </svg>

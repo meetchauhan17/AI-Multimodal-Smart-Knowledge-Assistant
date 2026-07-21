@@ -2,12 +2,13 @@
   <img src="ui/web_modern/favicon.svg" alt="AI Multimodal Smart Knowledge Assistant Logo" width="200" height="200">
   
   # AI Multimodal Smart Knowledge Assistant
+
+  [![Python Version](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](https://www.python.org/)
+  [![Framework](https://img.shields.io/badge/Framework-FastAPI%20%7C%20Gradio-green.svg)](https://fastapi.tiangolo.com/)
+  [![LLM Providers](https://img.shields.io/badge/LLM-Gemini%203.5%20Flash%20%7C%20Groq%2070B-purple.svg)](https://deepmind.google/technologies/gemini/)
+  [![RAG Core](https://img.shields.io/badge/RAG-ChromaDB%20%2B%20DuckDuckGo-orange.svg)](https://www.trychroma.com/)
+  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 </div>
-[![Python Version](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](https://www.python.org/)
-[![Framework](https://img.shields.io/badge/Framework-FastAPI%20%7C%20Gradio-green.svg)](https://fastapi.tiangolo.com/)
-[![LLM Providers](https://img.shields.io/badge/LLM-Gemini%203.5%20Flash%20%7C%20Groq%2070B-purple.svg)](https://deepmind.google/technologies/gemini/)
-[![RAG Core](https://img.shields.io/badge/RAG-ChromaDB%20%2B%20DuckDuckGo-orange.svg)](https://www.trychroma.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 An enterprise-ready, multimodal knowledge platform designed for domain-specific context retrieval, speech interaction, computer vision analysis, and text-to-image artwork synthesis. Built with a resilient multi-provider LLM fallback router, vector-based Retrieval-Augmented Generation (RAG), live web search fallback for real-time events, local speech-to-text (STT), text-to-speech (TTS), and a modern interactive web interface.
 

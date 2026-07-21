@@ -358,6 +358,15 @@ if __name__ == "__main__":
         allow_headers=["*"],
     )
 
+    # Disable browser caching so updates always load fresh (200 OK)
+    @server.middleware("http")
+    async def disable_cache(request, call_next):
+        response = await call_next(request)
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+        return response
+
     # 1. Mount Gradio API backend at /gradio
     blocks = build_app()
     server = gr.mount_gradio_app(

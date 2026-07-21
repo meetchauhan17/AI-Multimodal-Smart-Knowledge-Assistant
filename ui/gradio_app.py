@@ -347,7 +347,7 @@ if __name__ == "__main__":
     from fastapi.staticfiles import StaticFiles
     from fastapi.middleware.cors import CORSMiddleware
 
-    logger.info("Starting Hand-Drawn Notebook UI Server on http://127.0.0.1:7871...")
+    logger.info("Starting AI Multimodal Smart Knowledge Assistant on http://127.0.0.1:7871...")
 
     server = FastAPI(title="AI Multimodal Smart Knowledge Assistant")
 
@@ -367,18 +367,18 @@ if __name__ == "__main__":
         app_kwargs={"default_config": blocks.config},
     )
 
-    # 2. Serve static Notebook UI directly at root /
+    # 2. Serve static web interface directly at root /
     notebook_dir = Path(__file__).parent / "web_modern"
     if notebook_dir.is_dir():
         server.mount(
             "/",
             StaticFiles(directory=str(notebook_dir), html=True),
-            name="notebook_ui",
+            name="web_ui",
         )
-        logger.info(f"Notebook UI mounted directly at / from {notebook_dir}")
+        logger.info(f"Web interface mounted directly at / from {notebook_dir}")
 
     logger.info("═══════════════════════════════════════════════════════════")
-    logger.info("  Hand-Drawn Notebook UI  →  http://127.0.0.1:7871")
+    logger.info("  AI Multimodal Smart Knowledge Assistant  →  http://127.0.0.1:7871")
     logger.info("═══════════════════════════════════════════════════════════")
 
     uvicorn.run(server, host="127.0.0.1", port=7871)

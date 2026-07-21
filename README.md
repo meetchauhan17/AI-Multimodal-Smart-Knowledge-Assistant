@@ -6,7 +6,7 @@
 [![RAG Core](https://img.shields.io/badge/RAG-ChromaDB%20%2B%20DuckDuckGo-orange.svg)](https://www.trychroma.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-An enterprise-ready, multimodal knowledge platform designed for domain-specific context retrieval, speech interaction, computer vision analysis, and text-to-image artwork synthesis. Built with a resilient multi-provider LLM fallback router, vector-based Retrieval-Augmented Generation (RAG), live web search fallback for real-time events, local speech-to-text (STT), text-to-speech (TTS), and the Hand-Drawn Notebook UI.
+An enterprise-ready, multimodal knowledge platform designed for domain-specific context retrieval, speech interaction, computer vision analysis, and text-to-image artwork synthesis. Built with a resilient multi-provider LLM fallback router, vector-based Retrieval-Augmented Generation (RAG), live web search fallback for real-time events, local speech-to-text (STT), text-to-speech (TTS), and a modern interactive web interface.
 
 ---
 
@@ -59,10 +59,9 @@ When local vector retrieval score metrics fall below configured confidence thres
 - **RAG Caption Follow-up**: Query the internal vector database using generated image captions as context.
 - **Text-to-Image Generation**: Synthesize original digital artwork from descriptive text prompts using the Pollinations.ai engine with Gemini prompt optimization fallback.
 
-### Unified Single-Server Web Architecture
-- **SketchAgents Notebook UI**: Custom hand-drawn notebook frontend served at `/` and `/ui/` implementing custom CSS design tokens, Kalam/Patrick Hand typography, paper dot-grid backgrounds, and wobbly container borders.
-- **Native Gradio UI**: Embedded Gradio Blocks interface accessible at `/gradio`.
-- **FastAPI Core Backend**: Single Uvicorn/FastAPI process running on port `7871` serving both user interfaces and all REST API endpoints.
+### Single-Server Web Architecture
+- **Interactive Web Interface**: Custom web frontend served directly at root `/` implementing Kalam/Patrick Hand typography, paper dot-grid background, and responsive panels.
+- **FastAPI Core Backend**: Single Uvicorn/FastAPI process running on port `7871` serving the user interface and REST API endpoints.
 
 ---
 

@@ -1,144 +1,289 @@
-# AI Multimodal Smart Knowledge Assistant — Capstone Project
+# AI Multimodal Smart Knowledge Assistant
 
-An extensible, multimodal knowledge assistant designed to answer domain-specific queries using text, speech (Voice Q&A), and images (Image Captioning & Generation). It features a robust LLM routing and fallback mechanism prioritizing a local or remote **IBM Bob Shell CLI** connection, falling back gracefully to **Groq** and **Google Gemini** APIs.
-
----
-
-## Capstone Features Checklist (Requirements Mapping)
-
-| Module / Requirement | Status | Implementation File | Verification Command |
-| :--- | :--- | :--- | :--- |
-| **Module 1(a): Fallback LLM Routing** | `COMPLETED` | [llm_provider.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/core/llm_provider.py) | `pytest tests/test_llm_provider.py` |
-| **Module 1(b): Speech-to-Text (STT)** | `COMPLETED` | [speech_to_text.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/modules/speech_to_text.py) | `pytest tests/test_stt.py` |
-| **Module 1(d): Text-to-Speech (TTS)** | `COMPLETED` | [text_to_speech.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/modules/text_to_speech.py) | `pytest tests/test_tts.py` |
-| **Module 2(a): Image Captioning** | `COMPLETED` | [image_captioning.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/modules/image_captioning.py) | `pytest tests/test_image_captioning.py` |
-| **Module 2(b): Image Generation** | `COMPLETED` | [image_generation.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/modules/image_generation.py) | `pytest tests/test_image_generation.py` |
-| **Module 3: Retrieval-Augmented Gen (RAG)** | `COMPLETED` | [retriever.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/modules/rag/retriever.py) | `pytest tests/test_rag.py` |
-| **Multimodal Orchestrator** | `COMPLETED` | [assistant.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/core/assistant.py) | `pytest tests/test_assistant.py` |
-| **Gradio Blocks Layout (3 Tabs)** | `COMPLETED` | [gradio_app.py](file:///c:/Meet/xyz/AI%20Multimodal%20Smart%20Knowledge%20Assistant/multimodal-knowledge-assistant/ui/gradio_app.py) | `python ui/gradio_app.py` |
+A production-grade, multimodal knowledge platform capable of processing natural language queries, audio voice inputs, document search, web retrieval, image captioning, and AI artwork synthesis. Built with a resilient multi-provider LLM routing architecture, local vector database retrieval, real-time web search fallback, speech recognition, speech synthesis, and dual user interface options.
 
 ---
 
-## Project Structure
+## Executive Summary
+
+The AI Multimodal Smart Knowledge Assistant bridges local document knowledge with multi-provider generative AI capabilities. It accepts inputs via text typing or microphone voice recording, retrieves contextual domain knowledge using Retrieval-Augmented Generation (RAG), automatically falls back to live web search for real-world current events, and returns both formatted written responses and spoken audio output. In addition, the platform provides computer vision image analysis and text-to-image art generation.
+
+---
+
+## Capstone Feature Mapping
+
+| Requirement / Module | Implementation Component | Primary Handler | Status | Verification Command |
+| :--- | :--- | :--- | :--- | :--- |
+| **Module 1(a): LLM Routing & Fallback** | `core/llm_provider.py` | Google Gemini 3.5 Flash / Groq Llama 3.3 70B | COMPLETED | `pytest tests/test_llm_provider.py` |
+| **Module 1(b): Speech-to-Text (STT)** | `modules/speech_to_text.py` | OpenAI Whisper (Local) | COMPLETED | `pytest tests/test_stt.py` |
+| **Module 1(d): Text-to-Speech (TTS)** | `modules/text_to_speech.py` | gTTS Audio Synthesizer | COMPLETED | `pytest tests/test_tts.py` |
+| **Module 2(a): Image Captioning** | `modules/image_captioning.py` | Gemini Vision / Groq Vision | COMPLETED | `pytest tests/test_image_captioning.py` |
+| **Module 2(b): Image Generation** | `modules/image_generation.py` | Pollinations.ai API | COMPLETED | `pytest tests/test_image_generation.py` |
+| **Module 3: RAG & Web Search** | `modules/rag/retriever.py` | ChromaDB + DuckDuckGo Engine | COMPLETED | `pytest tests/test_rag.py` |
+| **Multimodal Orchestrator** | `core/assistant.py` | `MultimodalAssistant` Class | COMPLETED | `pytest tests/test_assistant.py` |
+| **Unified Web Interface** | `ui/gradio_app.py` | FastAPI + Gradio + SketchAgents UI | COMPLETED | `python ui/gradio_app.py` |
+
+---
+
+## System Architecture
+
+```text
+                                 +-------------------------------+
+                                 |   User Input (Text / Voice)   |
+                                 +---------------+---------------+
+                                                 |
+                                                 v
+                                 +---------------+---------------+
+                                 |  Speech-to-Text (Whisper STT)  | (if audio provided)
+                                 +---------------+---------------+
+                                                 |
+                                                 v
+                                 +---------------+---------------+
+                                 |  RAG Knowledge Base Search    | (ChromaDB Vector Store)
+                                 +---------------+---------------+
+                                                 |
+                                        +--------+--------+
+                                        | Context Found?  |
+                                        +---+---------+---+
+                                            |         |
+                                     (Yes)  |         | (No / Low Score)
+                                            v         v
+                             +--------------+--+   +--+-------------------+
+                             | Local RAG Doc   |   | Live Web Search      | (DuckDuckGo Engine)
+                             | Context         |   | Snippets Context     |
+                             +--------------+--+   +--+-------------------+
+                                            |         |
+                                            +----+----+
+                                                 |
+                                                 v
+                                 +---------------+---------------+
+                                 |   LLM Router & Fallback Chain |
+                                 |   Primary: Gemini 3.5 Flash   |
+                                 |   Fallback: Groq 70B          |
+                                 +---------------+---------------+
+                                                 |
+                                                 v
+                                 +---------------+---------------+
+                                 |  Text-to-Speech (gTTS Engine) |
+                                 +---------------+---------------+
+                                                 |
+                                                 v
+                                 +---------------+---------------+
+                                 | Formatted Response + MP3 Audio|
+                                 +-------------------------------+
+```
+
+---
+
+## Key Features
+
+1. **Multimodal Query Processing**
+   - Accept typed textual queries or voice recordings.
+   - Speech-to-Text transcription powered locally by OpenAI Whisper.
+   - Text-to-Speech audio response generation powered by gTTS with automatic sentence splitting.
+
+2. **Retrieval-Augmented Generation (RAG) with Live Web Search Fallback**
+   - Domain-specific vector search across 7 knowledge categories (`college`, `tourism`, `healthcare`, `agriculture`, `library`, `museums`, `monuments`).
+   - Automatic query domain filtering or auto-detection.
+   - Real-time web search fallback using DuckDuckGo when internal database scores are low, enabling accurate responses for current real-world news.
+
+3. **Multi-Provider Resilient LLM Routing**
+   - Primary: Google Gemini (`gemini-3.5-flash`).
+   - Fallback: Groq (`llama-3.3-70b-versatile`).
+   - Automatic rate-limit handling and seamless provider switching.
+
+4. **Computer Vision & Image Analysis**
+   - Upload images to generate structured captions.
+   - Support for multiple description styles: `Descriptive`, `Short`, and `Detailed`.
+   - Integrated **RAG Follow-up** for exploring context related to uploaded images.
+
+5. **Text-to-Image Generation**
+   - Synthesise original artwork from descriptive prompts.
+   - Powered by Pollinations.ai image generation API.
+
+6. **Unified Dual Interface Application**
+   - Hand-drawn **SketchAgents Notebook UI** served as primary interface at `/` and `/ui/`.
+   - Native **Gradio Blocks Interface** served at `/gradio`.
+   - Single FastAPI backend server on port 7871.
+
+---
+
+## Directory Structure
 
 ```text
 multimodal-knowledge-assistant/
-├── .env.example              # Template for credentials & settings
-├── requirements.txt          # Pinned project dependencies
-├── README.md                 # Project guide (this file)
 ├── config/
-│   └── settings.py           # Configuration loader via Pydantic BaseSettings
-├── shared/
-│   ├── bob.py                # Subprocess runner for IBM Bob CLI
-│   ├── bob_llm.py            # CrewAI LLM adapter monkey-patching Bob CLI
-│   └── tools/
-│       └── bob_tool.py       # CrewAI @tool adapter for Agents
+│   ├── __init__.py
+│   └── settings.py              # Pydantic BaseSettings config loader
 ├── core/
-│   ├── llm_provider.py       # Fallback-based LLM router (Bob → Groq → Gemini)
-│   ├── assistant.py          # Unified Multimodal assistant orchestrator class
-│   ├── schemas.py            # Pydantic data schemas for API consistency
-│   └── logger.py             # Loguru configured logging (stdout & daily rotation)
+│   ├── assistant.py             # MultimodalAssistant unified orchestrator
+│   ├── llm_provider.py          # Provider router (Gemini 3.5 Flash -> Groq)
+│   ├── logger.py                # Loguru log configuration (console & rotating files)
+│   └── schemas.py               # Pydantic schemas for data consistency
 ├── modules/
-│   ├── speech_to_text.py     # Local speech recognition using Whisper (base)
-│   ├── text_to_speech.py     # Text-to-speech output using gTTS (sentence splitting)
-│   ├── image_captioning.py   # Image analysis and captioning (descriptive/short/detailed)
-│   ├── image_generation.py   # Text-to-image generator (Gemini / Pollinations fallback)
-│   └── rag/
-│       ├── ingestion.py      # Raw document chunking & vector database ingestion
-│       └── retriever.py      # Semantic text search across vector database
-├── data/
-│   └── knowledge_base/       # Domain-specific knowledge base documents
+│   ├── rag/
+│   │   ├── __init__.py
+│   │   ├── ingestion.py          # Document chunking & ChromaDB vector indexing
+│   │   └── retriever.py         # Vector similarity search & web fallback logic
+│   ├── image_captioning.py      # Vision analysis engine
+│   ├── image_generation.py      # Text-to-image synthesis module
+│   ├── speech_to_text.py        # Local Whisper STT module
+│   ├── text_to_speech.py        # gTTS audio synthesis module
+│   └── web_search.py            # Live DuckDuckGo web search engine
 ├── ui/
-│   └── gradio_app.py         # Gradio-based multi-tab web user interface
-├── tests/                    # Testing folder for unit and integration tests
-└── logs/                     # Auto-created folder for application logs
+│   ├── gradio_app.py            # Unified FastAPI + Gradio server entrypoint
+│   └── web_modern/              # SketchAgents Notebook Frontend
+│       ├── index.html           # Notebook layout HTML structure
+│       ├── style.css            # Hand-drawn design system & tokens
+│       └── app.js               # Gradio JS Client integration
+├── data/
+│   └── knowledge_base/          # Source documents per domain category
+├── tests/                       # Unit and integration test suite
+├── .env.example                 # Environment variables template
+├── requirements.txt             # Project dependencies
+└── README.md                    # System documentation
 ```
 
 ---
 
-## Prerequisites & Setup
+## Prerequisites & Installation
 
-### 1. Python Environment
-This project requires **Python 3.11**.
+### 1. System Requirements
+- Operating System: Windows 10/11, macOS, or Linux
+- Python Version: Python 3.11 or 3.12
+- Memory: 4 GB RAM minimum (8 GB recommended for Whisper model execution)
 
-1. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   ```
-2. Activate the virtual environment:
-   - **Windows (PowerShell):**
-     ```powershell
-     .\venv\Scripts\Activate.ps1
-     ```
-   - **macOS/Linux:**
-     ```bash
-     source venv/bin/activate
-     ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Install FFmpeg (Required for Audio Processing)
+FFmpeg is required by `pydub` and `whisper` for audio format conversion.
 
-### 2. FFmpeg Installation (Required for Audio/Voice Q&A)
-`pydub` (used for audio slicing and concatenation in Text-to-Speech and Speech-to-Text) requires `ffmpeg` and `ffprobe` to be available on your system `PATH`.
-- **Windows**: Download the binary package from [ffmpeg.org](https://ffmpeg.org/), extract it, and add the `bin` directory to your system Environment Variables.
-- **macOS (Homebrew)**: `brew install ffmpeg`
-- **Linux (apt)**: `sudo apt-get install ffmpeg`
+- **Windows**:
+  Download from [ffmpeg.org](https://ffmpeg.org/), extract to a directory (e.g. `C:\ffmpeg`), and add the `bin` folder to your System `PATH`.
+- **macOS**:
+  ```bash
+  brew install ffmpeg
+  ```
+- **Linux (Ubuntu/Debian)**:
+  ```bash
+  sudo apt-get update && sudo apt-get install -y ffmpeg
+  ```
 
-### 3. IBM Bob Shell CLI Verification
-Confirm that the `bob` command line interface is installed and accessible:
+### 3. Clone Repository & Setup Virtual Environment
+
 ```bash
-bob --help
+# Clone repository
+git clone https://github.com/meetchauhan17/AI-Multimodal-Smart-Knowledge-Assistant.git
+cd AI-Multimodal-Smart-Knowledge-Assistant
+
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+# On Windows (PowerShell):
+.\.venv\Scripts\Activate.ps1
+
+# On macOS / Linux:
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
 ```
-*Note: If `bob` CLI is not found or is missing an API key, the system automatically falls back to Groq and Gemini (see Graceful Degradation below).*
 
-### 4. Whisper Local Model Check
-Upon running a speech query or voice test for the first time, `openai-whisper` will automatically download the local weight files (defaults to the **base** model size, ~140MB) and cache them in `~/.cache/whisper`. No HuggingFace credentials or tokens are needed.
+### 4. Configure Environment Credentials
 
-### 5. Environment Credentials Setup
-1. Copy the `.env.example` file to `.env`:
-   ```bash
-   cp .env.example .env
-   ```
-2. Add your keys in the `.env` file:
-   - `BOBSHELL_API_KEY`: Primary API key for the Bob CLI.
-   - `GROQ_API_KEY`: Groq API key for Llama 3 models.
-   - `GEMINI_API_KEY`: Gemini API key for multimodal model tasks.
+Create a `.env` file in the project root directory based on `.env.example`:
 
----
+```env
+# Primary LLM Provider Configuration
+GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_MODEL=gemini-3.5-flash
+GEMINI_VISION_MODEL=gemini-3.5-flash
 
-## Graceful Degradation & Fallback Routing
+# Fallback LLM Provider Configuration
+GROQ_API_KEY=your_groq_api_key_here
 
-The `LLMProvider` is built to be extremely resilient. If:
-- `BOBSHELL_API_KEY` is not present in `.env`
-- The `bob` executable is missing on your system `PATH`
-- The CLI command returns a non-zero exit code or fails due to network issues
-
-The router automatically redirects requests to **Groq** (`llama-3.3-70b-versatile`) and **Gemini** (`gemini-2.0-flash`) in sequence without displaying any error trace to the end-user.
+# Routing Order
+PRIMARY_PROVIDER=gemini
+FALLBACK_ORDER=gemini,groq
+```
 
 ---
 
 ## Running the Application
 
-To start the Gradio UI:
+Launch the unified server by running:
+
 ```bash
 python ui/gradio_app.py
 ```
-Open the local address in your browser: `http://127.0.0.1:7860`.
+
+Once started, access the application endpoints in your browser:
+
+- **SketchAgents Notebook UI (Primary)**: `http://127.0.0.1:7871/` or `http://127.0.0.1:7871/ui/`
+- **Gradio Blocks Interface**: `http://127.0.0.1:7871/gradio`
+- **Interactive API Documentation**: `http://127.0.0.1:7871/docs`
 
 ---
 
-## Running Verification Tests
+## User Interface Overview
 
-Run the full automated test suite containing 29 test cases:
+### 1. SketchAgents Notebook Interface (`/ui/`)
+A hand-drawn notebook design system featuring:
+- Paper dot-grid background texture with wobbly card borders and tape strips.
+- **Tab 1 — Ask (Text & Voice)**: Typed questions, microphone recording, domain selection, sticky-note response display, audio playback, and provider metadata.
+- **Tab 2 — Image Captioning**: Drag-and-drop file upload, style selectors, caption text output, latency metrics, and RAG follow-up analysis.
+- **Tab 3 — Image Generation**: Prompt input field, polaroid-style image output frame, and provider status.
+
+### 2. Native Gradio Interface (`/gradio`)
+A standard Gradio Blocks interface providing direct form-based access to all model endpoints and parameters.
+
+---
+
+## API Reference
+
+The application exposes standard REST endpoints mounted via FastAPI and Gradio Client JS bindings:
+
+| Endpoint Name | HTTP Route | Description | Input Parameters | Output Format |
+| :--- | :--- | :--- | :--- | :--- |
+| `handle_ask` | `/gradio/api/handle_ask` | Multimodal Voice & Text Q&A | `question`, `audio_path`, `domain` | `[question, answer, audio_url, sources, provider]` |
+| `handle_caption` | `/gradio/api/handle_caption` | Image Analysis & Captioning | `image_file`, `style` | `[caption, provider, latency, error]` |
+| `handle_caption_followup` | `/gradio/api/handle_caption_followup` | RAG Query from Image Caption | `caption` | `[answer, sources]` |
+| `handle_image_gen` | `/gradio/api/handle_image_gen` | Text-to-Image Generation | `prompt` | `[image_path, provider, error]` |
+
+---
+
+## Automated Testing & Verification
+
+Run the full automated test suite using `pytest`:
+
 ```bash
-python -m pytest tests/
+# Run all unit and integration tests
+python -m pytest tests/ -v
+
+# Run specific module tests
+python -m pytest tests/test_llm_provider.py -v
+python -m pytest tests/test_rag.py -v
+python -m pytest tests/test_stt.py -v
+python -m pytest tests/test_tts.py -v
+python -m pytest tests/test_image_captioning.py -v
+python -m pytest tests/test_image_generation.py -v
+python -m pytest tests/test_assistant.py -v
 ```
 
 ---
 
-## Known Limitations
+## Troubleshooting & Known Behaviours
 
-1. **Text-to-Speech (gTTS)**: Uses Google Translate's TTS, which requires an active internet connection to download synthesized chunks.
-2. **Local Transcription Latency**: `openai-whisper` runs locally on the CPU. While the default `base` model balances speed and accuracy, first-load takes ~1-2 seconds to instantiate the weights into memory.
-3. **ChromaDB File Lock**: Running tests and the Gradio app concurrently may lead to file lock conflicts. Ensure you exit the Gradio app server before running the automated test suite.
+1. **Port Conflicts**:
+   If port `7871` is already in use, stop existing processes or update `server_port` in `ui/gradio_app.py`.
+
+2. **ChromaDB File Lock**:
+   Running `pytest` while `ui/gradio_app.py` is actively running may trigger ChromaDB SQLite database locks. Exit the running server process before running automated tests.
+
+3. **Audio Permissions**:
+   When using the browser microphone recording feature, ensure browser permissions allow audio input access on `http://127.0.0.1:7871`.
+
+---
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for details.

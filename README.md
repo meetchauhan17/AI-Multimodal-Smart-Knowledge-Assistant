@@ -135,33 +135,35 @@ One FastAPI + Uvicorn process on port `7871` serves both the full frontend UI an
 
 ## Screenshots
 
-### Ask — Text and Voice Query
-
 <div align="center">
-  <img src="ui/web_modern/screenshot_qna.png" alt="Ask Tab Interface" width="900">
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="ui/web_modern/screenshot_qna.png" alt="Ask — Text and Voice Query" width="270">
+      <br>
+      <b>Ask — Text &amp; Voice Query</b>
+      <br>
+      <sub>Type or record your question. The assistant answers with text and speech audio.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="ui/web_modern/screenshot_captioning.png" alt="Image Captioning" width="270">
+      <br>
+      <b>Image Captioning</b>
+      <br>
+      <sub>Upload any image and generate AI captions. Follow up with a RAG knowledge query.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="ui/web_modern/screenshot_generation.png" alt="AI Image Generation" width="270">
+      <br>
+      <b>AI Image Generation</b>
+      <br>
+      <sub>Enter a text prompt to synthesise original digital artwork.</sub>
+    </td>
+  </tr>
+</table>
+
 </div>
-
-Type any question or click **Click to Record** to use your microphone. Select a domain filter or use Auto-detect. The assistant responds with formatted text and synthesised speech audio.
-
----
-
-### Image Captioning
-
-<div align="center">
-  <img src="ui/web_modern/screenshot_captioning.png" alt="Image Captioning Tab" width="900">
-</div>
-
-Drag and drop any image to generate an AI caption in Descriptive, Short, or Detailed mode. Use **Learn More via RAG** to search your knowledge base using the caption as context.
-
----
-
-### AI Image Generation
-
-<div align="center">
-  <img src="ui/web_modern/screenshot_generation.png" alt="Image Generation Tab" width="900">
-</div>
-
-Enter any descriptive prompt to synthesise original digital artwork. The generated image renders directly inside the UI canvas.
 
 ---
 

@@ -17,21 +17,21 @@
 <table>
   <tr>
     <td align="center" width="33%">
-      <img src="screenshot/1.png" alt="Ask — Text and Voice Query" width="270" height="230">
+      <img src="screenshot/1.png" alt="Ask — Text and Voice Query" width="270" height="210">
       <br>
       <b>Ask — Text &amp; Voice Query</b>
       <br>
       <sub>Type or record your question. The assistant answers with text and speech audio.</sub>
     </td>
     <td align="center" width="33%">
-      <img src="screenshot/2.png" alt="Image Captioning" width="270" height="230">
+      <img src="screenshot/2.png" alt="Image Captioning" width="270" height="210">
       <br>
       <b>Image Captioning</b>
       <br>
       <sub>Upload any image and generate AI captions. Follow up with a RAG knowledge query.</sub>
     </td>
     <td align="center" width="33%">
-      <img src="screenshot/3.png" alt="AI Image Generation" width="270" height="230">
+      <img src="screenshot/3.png" alt="AI Image Generation" width="270" height="210">
       <br>
       <b>AI Image Generation</b>
       <br>

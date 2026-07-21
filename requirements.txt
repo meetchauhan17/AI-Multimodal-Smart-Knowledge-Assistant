@@ -1,0 +1,46 @@
+# AI Multimodal Smart Knowledge Assistant — Dependencies
+# Python 3.12 | Windows-compatible
+#
+# Uses MINIMUM VERSION bounds (>=) so pip doesn't downgrade your system packages.
+# Exact pins caused conflicts with modern system installs (pydantic 2.12, numpy 2.x, etc.)
+# Install with:  pip install -r requirements.txt
+
+# ── LLM providers ────────────────────────────────────────────────────────────
+groq>=0.9.0
+google-generativeai>=0.7.2
+openai>=1.35.0
+
+# ── LangChain ecosystem ──────────────────────────────────────────────────────
+langchain>=0.2.16
+langchain-community>=0.2.16
+langchain-core>=0.2.43
+langchain-text-splitters>=0.2.4
+
+# ── Vector store & embeddings ────────────────────────────────────────────────
+# chromadb 1.x already installed (no hnswlib compilation needed on Windows)
+chromadb>=0.5.3
+sentence-transformers>=3.0.1
+
+# ── Speech ───────────────────────────────────────────────────────────────────
+faster-whisper>=1.0.3             # local Whisper inference (no API key needed)
+# openai-whisper>=20231117        # alternative if faster-whisper has issues
+gTTS>=2.5.1                       # text-to-speech via Google TTS (free)
+pydub>=0.25.1                     # audio format conversion
+av>=12.3.0                        # PyAV: ffmpeg-free audio fallback
+
+# ── Image ────────────────────────────────────────────────────────────────────
+Pillow>=10.4.0
+
+# ── PDF ingestion (enables PDF support in RAG pipeline) ──────────────────────
+pypdf>=4.3.1
+
+# ── UI ───────────────────────────────────────────────────────────────────────
+gradio>=4.39.0
+
+# ── Config & utilities ───────────────────────────────────────────────────────
+python-dotenv>=1.0.1
+pydantic>=2.8.2
+pydantic-settings>=2.3.4
+tenacity>=8.5.0
+loguru>=0.7.2
+requests>=2.32.3

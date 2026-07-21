@@ -1,0 +1,15 @@
+=== SAMPLE DATA ===
+Domain: Tourism
+Document: Hotel Info - Grand Plaza Hotel
+Location: Central Downtown
+
+Amenities:
+- 24/7 Room Service & Concierge
+- Free High-Speed Wi-Fi
+- Indoor Heated Swimming Pool & Spa
+- Fitness Center with modern equipment
+- In-house Michelin-starred restaurant (The Bistro)
+
+Check-in: 3:00 PM
+Check-out: 11:00 AM
+Policy: Free cancellation up to 24 hours before check-in.

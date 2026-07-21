@@ -1,0 +1,11 @@
+=== SAMPLE DATA ===
+Domain: Monuments
+Document: The Washington Monument
+Location: National Mall, Washington, D.C.
+
+Key Facts:
+- Structure: An obelisk made of marble, granite, and blue stone gneiss.
+- Height: 554 feet 7 inches (approx. 169 meters). It is the world's tallest stone structure and tallest obelisk.
+- Dedication: Built to commemorate George Washington, commander-in-chief of the Continental Army and the first President of the United States.
+- Construction Period: Started in 1848, halted from 1854 to 1877 due to lack of funds and the American Civil War, completed in 1884.
+- Visitor Access: Elevator tours to the 500-foot observation deck are available daily (requires ticket).

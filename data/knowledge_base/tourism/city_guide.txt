@@ -1,0 +1,13 @@
+=== SAMPLE DATA ===
+Domain: Tourism
+Document: City Guide - Highlights of Paris
+City: Paris, France
+
+Top Attractions:
+1. Eiffel Tower: The iconic wrought-iron lattice tower on the Champ de Mars.
+2. Louvre Museum: The world's largest art museum, home to the Mona Lisa.
+3. Notre-Dame Cathedral: A historic Catholic cathedral on the Île de la Cité.
+4. Arc de Triomphe: Standing at the western end of the Champs-Élysées.
+
+Best Time to Visit:
+Spring (April to June) or Fall (September to October) when the weather is mild and tourist crowds are smaller.

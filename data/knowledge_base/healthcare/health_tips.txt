@@ -1,0 +1,11 @@
+=== SAMPLE DATA ===
+Domain: Healthcare
+Document: Daily Health and Wellness Tips
+Category: Preventive Care
+
+Tips for a Healthier Life:
+1. Stay Hydrated: Drink at least 8-10 glasses of water daily to maintain bodily functions.
+2. Balanced Diet: Prioritize whole foods, vegetables, lean proteins, and fiber. Limit processed sugars.
+3. Regular Exercise: Aim for 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity weekly.
+4. Quality Sleep: Ensure 7-9 hours of restful sleep every night to allow the body to recover and reset.
+5. Mental Well-being: Practice mindfulness or meditation to manage daily stress levels.

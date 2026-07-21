@@ -1,0 +1,17 @@
+=== SAMPLE DATA ===
+Domain: Museums
+Document: Museum of Fine Arts - Exhibition Schedule
+Year: 2026
+
+Upcoming Temporary Exhibitions:
+1. "Echoes of Modernity" (March 15 - June 20)
+   - A collection of abstract expressions and sculpture from early 20th-century European artists.
+2. "Ancient Dynasties: Treasures from the East" (July 10 - October 15)
+   - Jade ornaments, pottery, and ceremonial weapons from imperial dynasties.
+3. "Digital Frontiers: Art in the Age of AI" (November 5 - January 10, 2027)
+   - Dynamic, generative, and interactive digital art installations.
+
+Admission Info:
+- General Admission: $15
+- Seniors/Students: $10
+- Children under 12: Free

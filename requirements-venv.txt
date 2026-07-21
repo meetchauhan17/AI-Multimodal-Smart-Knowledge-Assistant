@@ -1,0 +1,43 @@
+# AI Multimodal Smart Knowledge Assistant — Virtual Environment Requirements
+# Python 3.12 | Designed for a clean .venv (no system package conflicts)
+#
+# Install with:
+#   python -m venv .venv
+#   .venv\Scripts\pip install -r requirements-venv.txt
+
+# ── LLM providers ────────────────────────────────────────────────────────────
+groq>=0.9.0
+google-generativeai>=0.7.2
+
+# ── LangChain (0.3.x stable APIs) ────────────────────────────────────────────
+langchain>=0.3.0,<1.0
+langchain-community>=0.3.0,<1.0
+langchain-core>=0.3.0,<1.0
+langchain-text-splitters>=0.3.0,<1.0
+
+# ── Vector store & embeddings ────────────────────────────────────────────────
+chromadb>=0.5.3
+sentence-transformers>=3.0.1
+
+# ── Speech ───────────────────────────────────────────────────────────────────
+faster-whisper>=1.0.3
+gTTS>=2.5.1
+pydub>=0.25.1
+av>=12.3.0
+
+# ── Image ────────────────────────────────────────────────────────────────────
+Pillow>=10.4.0
+
+# ── PDF support ──────────────────────────────────────────────────────────────
+pypdf>=4.3.1
+
+# ── UI ───────────────────────────────────────────────────────────────────────
+gradio>=4.39.0
+
+# ── Config & utilities ───────────────────────────────────────────────────────
+python-dotenv>=1.0.1
+pydantic>=2.8.2
+pydantic-settings>=2.3.4
+tenacity>=8.0.0
+loguru>=0.7.0
+requests>=2.28.0

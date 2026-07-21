@@ -1,0 +1,12 @@
+=== SAMPLE DATA ===
+Domain: Healthcare
+Document: City General Hospital - Services Overview
+Emergency Contact: 911 (or local emergency line)
+General Inquiry: +1-555-0199
+
+Key Specialties & Units:
+1. Emergency Care: 24/7 emergency department staffed with board-certified physicians.
+2. Cardiology Center: Advanced diagnostic imaging, catheterization labs, and cardiac rehab.
+3. Oncology Department: Multi-disciplinary cancer care including chemotherapy, radiation, and support.
+4. Pediatrics Unit: Dedicated child-friendly ward offering specialized pediatric inpatient care.
+5. Outpatient Clinic: Scheduled consultations for general medicine, orthopedics, and dermatology.

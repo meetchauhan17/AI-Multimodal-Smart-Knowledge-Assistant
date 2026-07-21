@@ -1,0 +1,10 @@
+=== SAMPLE DATA ===
+Domain: College
+Document: Admission Requirements
+Description: Core requirements for admission to the undergraduate programs.
+
+Requirements:
+1. Minimum GPA of 3.0 or equivalent.
+2. English proficiency: TOEFL (iBT) 80+ or IELTS 6.5+.
+3. Completed application form with statement of purpose and 2 recommendation letters.
+4. Submission deadline: Fall semester - June 1st, Spring semester - November 1st.

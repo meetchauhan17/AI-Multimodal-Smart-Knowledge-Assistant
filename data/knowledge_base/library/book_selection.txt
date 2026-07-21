@@ -1,0 +1,12 @@
+=== SAMPLE DATA ===
+Domain: Library
+Document: New Arrivals and Book Selection
+Category: Recommended Reading
+
+Featured Additions:
+1. "The AI Horizon" by Dr. Evelyn Sterling (Category: Technology, Call No. Q335.S74 2026)
+2. "Whispers of the Past" by Arthur Pendelton (Category: Historical Fiction, Call No. PR6101.P46 2025)
+3. "Healthy Habits for the Mind" by Clara Vance (Category: Psychology/Self-Help, Call No. BF637.V36 2026)
+
+Acquisitions Policy:
+Users can submit acquisition requests for books not in the catalog. Forms are available at the front service desk and will be reviewed by the collection manager monthly.

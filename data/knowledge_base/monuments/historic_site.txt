@@ -1,0 +1,11 @@
+=== SAMPLE DATA ===
+Domain: Monuments
+Document: Stonehenge Historical Site
+Location: Wiltshire, England
+
+Key Details:
+- Type: Prehistoric monument consisting of a ring of standing stones, each around 13 feet high and weighing 25 tons.
+- Age: Archaeologists believe it was constructed from 3000 BC to 2000 BC.
+- Purpose: Theories range from an astronomical observatory or calendar to a place of healing, burial, or religious worship.
+- Protection: Stonehenge has been a UNESCO World Heritage Site since 1986.
+- Visitor Center: Features audio-visual exhibitions, archaeological finds, and reconstructed Neolithic houses nearby.

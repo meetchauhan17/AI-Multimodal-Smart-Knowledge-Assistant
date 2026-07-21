@@ -1,0 +1,13 @@
+=== SAMPLE DATA ===
+Domain: Agriculture
+Document: Smart Irrigation Systems
+Subject: Water Conservation in Farming
+
+Irrigation Methods:
+1. Drip Irrigation: Delivers water directly to plant roots via a network of pipes and emitters. Highly efficient; minimizes evaporation and weed growth.
+2. Sprinkler Irrigation: Distributes water through overhead nozzles, mimicking rainfall. Best for lawns, pastures, and some row crops.
+3. Subsurface Irrigation: Places drip lines below the soil surface. Minimizes surface evaporation and soil runoff.
+
+Best Practices:
+- Soil Moisture Monitoring: Use sensors to only irrigate when soil moisture drops below threshold levels.
+- Timing: Water in the early morning or late evening to reduce evaporative water loss.

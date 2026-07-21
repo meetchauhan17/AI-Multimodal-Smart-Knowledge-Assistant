@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Multimodal Smart Knowledge Assistant — Ask questions, caption images, and generate artwork with a hand-drawn notebook interface.">
+  <title>AI Multimodal Smart Knowledge Assistant</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <header class="card card--yellow p-6 mb-2 text-center" style="overflow:visible">
+    <div class="tape tape--tl"></div>
+    <div class="tape tape--tr"></div>
+    <div class="pin pin--red pin--tr"></div>
+
+    <!-- Logo + Title Row -->
+    <div class="row gap-md" style="justify-content:center">
+      <div class="card p-4 float-bob" style="border-radius:50%; width:64px; height:64px; display:flex; align-items:center; justify-content:center; box-shadow: var(--shadow-hard-sm);">
+        <iconify-icon icon="fluent-emoji-flat:robot" width="36"></iconify-icon>
+      </div>
+      <div>
+        <h1 style="font-size:2.1rem; line-height:1.15">AI Multimodal Smart Knowledge Assistant</h1>
+        <p class="text-muted" style="font-size:1.05rem; margin-top:2px">
+          Capstone Project — Ask it, show it a picture, or make it draw.
+        </p>
+      </div>
+    </div>
+
+    <!-- Connection Badge -->
+    <div class="mt-2 text-center">
+      <span class="status-badge" id="conn-badge">
+        <span class="status-dot status-dot--loading" id="conn-dot"></span>
+        <span id="conn-text">Connecting…</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       TAB BAR
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <nav class="tab-bar mt-3">
+    <button class="btn tab-btn active" data-tab="panel-ask">
+      <iconify-icon icon="lucide:message-circle-question" width="20"></iconify-icon>
+      Ask (Text & Voice)
+    </button>
+    <button class="btn tab-btn" data-tab="panel-caption">
+      <iconify-icon icon="lucide:scan-eye" width="20"></iconify-icon>
+      Image Captioning
+    </button>
+    <button class="btn tab-btn" data-tab="panel-gen">
+      <iconify-icon icon="lucide:brush" width="20"></iconify-icon>
+      Image Generation
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PANEL 1 — ASK (TEXT & VOICE)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="panel-ask" class="panel card p-6">
+    <div class="tape tape--tl"></div>
+    <div class="pin pin--blue pin--tr"></div>
+
+    <h2 class="section-title">
+      <iconify-icon icon="lucide:sparkles" width="26" style="color:var(--blue)"></iconify-icon>
+      Submit Your Query
+    </h2>
+    <p class="section-subtitle">Type a question or record your voice. The assistant answers with text &amp; speech.</p>
+
+    <div class="grid-2">
+      <!-- ── Left: Inputs ────────────────────────────── -->
+      <div class="stack gap-lg">
+        <!-- Text Input -->
+        <div class="stack gap-sm">
+          <label class="fw-700" style="font-family:var(--font-heading)">Typed Question</label>
+          <textarea id="ask-q" class="input" rows="4" placeholder="E.g. Who won FIFA 2026? or What are the admission requirements?"></textarea>
+        </div>
+
+        <!-- Voice Recorder -->
+        <div class="card card--paper p-4 stack gap-sm">
+          <label class="fw-700 row gap-sm" style="font-family:var(--font-heading)">
+            <iconify-icon icon="lucide:mic" width="18" style="color:var(--red)"></iconify-icon>
+            Voice Recording <span class="text-muted text-sm">(optional)</span>
+          </label>
+          <div class="row gap-md">
+            <button id="mic-btn" class="btn btn--blue" style="font-size:1rem; padding:.45rem .9rem">
+              <iconify-icon icon="lucide:mic" width="18" id="mic-ico"></iconify-icon>
+              <span id="mic-label">Click to Record</span>
+            </button>
+            <span id="mic-status" class="text-sm text-muted">No audio</span>
+          </div>
+          <audio id="mic-preview" controls class="audio-sketch hidden"></audio>
+        </div>
+
+        <!-- Domain Dropdown -->
+        <div class="stack gap-sm">
+          <label class="fw-700" style="font-family:var(--font-heading)">Domain Filter</label>
+          <select id="ask-domain" class="input">
+            <option value="Auto-detect">Auto-detect</option>
+            <option value="College">College</option>
+            <option value="Tourism">Tourism</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Library">Library</option>
+            <option value="Museums">Museums</option>
+            <option value="Historical Monuments">Historical Monuments</option>
+          </select>
+        </div>
+
+        <!-- Submit -->
+        <button id="ask-btn" class="btn btn--primary btn--lg btn--full">
+          <iconify-icon icon="lucide:send" width="22"></iconify-icon>
+          Submit Question
+        </button>
+      </div>
+
+      <!-- ── Right: Results ───────────────────────────── -->
+      <div class="stack gap-lg">
+        <!-- Answer Card -->
+        <div id="ask-result" class="card card--yellow p-5">
+          <div class="tape tape--tr"></div>
+          <h3 class="row gap-sm mb-1" style="font-size:1.25rem">
+            <iconify-icon icon="lucide:notebook-pen" width="22"></iconify-icon>
+            Answer
+          </h3>
+          <div id="ask-answer" class="whitespace-pre" style="font-size:1.15rem; min-height:80px">
+            Your answer will appear here…
+          </div>
+        </div>
+
+        <!-- Audio Player -->
+        <div id="ask-audio-wrap" class="stack gap-sm hidden">
+          <label class="fw-700 row gap-sm" style="font-family:var(--font-heading)">
+            <iconify-icon icon="lucide:volume-2" width="18" style="color:var(--blue)"></iconify-icon>
+            Spoken Answer
+          </label>
+          <audio id="ask-audio" controls class="audio-sketch"></audio>
+        </div>
+
+        <!-- Meta Tags -->
+        <div class="row gap-sm wrap">
+          <span class="tag tag--yellow">
+            <iconify-icon icon="lucide:cpu" width="15"></iconify-icon>
+            Provider: <strong id="ask-provider">—</strong>
+          </span>
+          <span class="tag tag--blue">
+            <iconify-icon icon="lucide:file-text" width="15"></iconify-icon>
+            Sources: <strong id="ask-sources">—</strong>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PANEL 2 — IMAGE CAPTIONING
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="panel-caption" class="panel card p-6 hidden">
+    <div class="tape tape--tl"></div>
+    <div class="pin pin--red pin--tr"></div>
+
+    <h2 class="section-title">
+      <iconify-icon icon="lucide:scan-eye" width="26" style="color:var(--blue)"></iconify-icon>
+      Upload &amp; Caption Image
+    </h2>
+    <p class="section-subtitle">Drag-and-drop or click to upload an image. Choose a description style to generate captions.</p>
+
+    <div class="grid-2">
+      <!-- ── Left: Upload ─────────────────────────────── -->
+      <div class="stack gap-lg">
+        <!-- Dropzone -->
+        <div id="cap-dropzone" class="dropzone">
+          <input type="file" id="cap-file" accept="image/*" class="hidden">
+          <div id="cap-prompt">
+            <iconify-icon icon="lucide:image-up" width="48" style="color:var(--blue)" class="float-bob"></iconify-icon>
+            <p class="fw-700 mt-1" style="font-family:var(--font-heading); font-size:1.2rem">
+              Click or Drag &amp; Drop Image
+            </p>
+            <p class="text-sm text-muted">PNG, JPG, WEBP supported</p>
+          </div>
+          <img id="cap-preview" class="hidden" alt="Preview" style="max-height:220px; margin:0 auto">
+        </div>
+
+        <!-- Style Radio -->
+        <div class="stack gap-sm">
+          <label class="fw-700" style="font-family:var(--font-heading)">Description Style</label>
+          <div class="row gap-md wrap">
+            <label class="row gap-sm" style="cursor:pointer">
+              <input type="radio" name="cap-style" value="descriptive" checked style="accent-color:var(--blue); width:18px; height:18px">
+              <span class="fw-700">Descriptive</span>
+            </label>
+            <label class="row gap-sm" style="cursor:pointer">
+              <input type="radio" name="cap-style" value="short" style="accent-color:var(--blue); width:18px; height:18px">
+              <span class="fw-700">Short</span>
+            </label>
+            <label class="row gap-sm" style="cursor:pointer">
+              <input type="radio" name="cap-style" value="detailed" style="accent-color:var(--blue); width:18px; height:18px">
+              <span class="fw-700">Detailed</span>
+            </label>
+          </div>
+        </div>
+
+        <button id="cap-btn" class="btn btn--primary btn--lg btn--full">
+          <iconify-icon icon="lucide:wand-2" width="22"></iconify-icon>
+          Generate Caption
+        </button>
+      </div>
+
+      <!-- ── Right: Results ───────────────────────────── -->
+      <div class="stack gap-lg">
+        <div class="card card--yellow p-5">
+          <div class="tape tape--tr"></div>
+          <h3 class="row gap-sm mb-1" style="font-size:1.25rem">
+            <iconify-icon icon="lucide:quote" width="22"></iconify-icon>
+            Caption
+          </h3>
+          <div id="cap-out" class="whitespace-pre" style="font-size:1.15rem; min-height:80px">
+            Generated caption will appear here…
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="row gap-sm wrap">
+          <span class="tag tag--yellow">
+            <iconify-icon icon="lucide:eye" width="15"></iconify-icon>
+            Vision: <strong id="cap-provider">—</strong>
+          </span>
+          <span class="tag tag--blue">
+            <iconify-icon icon="lucide:timer" width="15"></iconify-icon>
+            Latency: <strong id="cap-latency">—</strong>
+          </span>
+        </div>
+        <div id="cap-err" class="tag tag--red hidden w-full p-4" style="font-size:1rem"></div>
+
+        <!-- Follow-up -->
+        <div class="card card--paper p-4 stack gap-sm">
+          <button id="cap-followup-btn" class="btn btn--blue btn--full" style="font-size:1rem">
+            <iconify-icon icon="lucide:book-open-text" width="18"></iconify-icon>
+            Learn More via RAG
+          </button>
+          <div id="cap-followup-out" class="whitespace-pre hidden" style="background:#fff; border:1.5px solid var(--pencil); border-radius:8px; padding:.75rem"></div>
+          <div id="cap-followup-src" class="text-sm text-muted hidden"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PANEL 3 — IMAGE GENERATION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section id="panel-gen" class="panel card p-6 hidden">
+    <div class="tape tape--tl"></div>
+    <div class="pin pin--blue pin--tr"></div>
+
+    <h2 class="section-title">
+      <iconify-icon icon="lucide:brush" width="26" style="color:var(--blue)"></iconify-icon>
+      Generate Artwork from Text
+    </h2>
+    <p class="section-subtitle">Enter a descriptive prompt and the AI will synthesise a new image.</p>
+
+    <div class="grid-2">
+      <!-- ── Left: Prompt ─────────────────────────────── -->
+      <div class="stack gap-lg">
+        <div class="stack gap-sm">
+          <label class="fw-700" style="font-family:var(--font-heading)">Image Prompt</label>
+          <textarea id="gen-prompt" class="input" rows="5" placeholder="E.g. A gorgeous watercolor painting of a red rose on a desk…"></textarea>
+        </div>
+
+        <button id="gen-btn" class="btn btn--primary btn--lg btn--full">
+          <iconify-icon icon="lucide:image-plus" width="22"></iconify-icon>
+          Generate Image
+        </button>
+      </div>
+
+      <!-- ── Right: Output ────────────────────────────── -->
+      <div class="stack gap-lg">
+        <div class="polaroid">
+          <span class="polaroid__label">Agent Output</span>
+          <div class="polaroid__inner" id="gen-frame">
+            <img id="gen-img" class="hidden" alt="Generated artwork">
+            <div id="gen-placeholder" class="stack gap-sm text-center p-5" style="color:var(--pencil-light)">
+              <iconify-icon icon="lucide:image" width="52" class="float-bob"></iconify-icon>
+              <p style="font-family:var(--font-heading); font-size:1.15rem">Your artwork will render here</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gap-sm wrap">
+          <span class="tag tag--yellow">
+            <iconify-icon icon="lucide:palette" width="15"></iconify-icon>
+            Provider: <strong id="gen-provider">—</strong>
+          </span>
+        </div>
+        <div id="gen-err" class="tag tag--red hidden w-full p-4" style="font-size:1rem"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <span>© 2026 AI Multimodal Smart Knowledge Assistant — Notebook Edition</span>
+    <span class="row gap-sm">
+      <span class="status-dot status-dot--ok" id="footer-dot"></span>
+      Gradio API @ <code id="footer-url">/gradio</code>
+    </span>
+  </footer>
+
+</div><!-- /.app-shell -->
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

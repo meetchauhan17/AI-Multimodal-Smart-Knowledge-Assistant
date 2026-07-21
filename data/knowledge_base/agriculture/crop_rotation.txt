@@ -1,0 +1,15 @@
+=== SAMPLE DATA ===
+Domain: Agriculture
+Document: Crop Rotation Guidelines
+Subject: Sustainable Soil Management
+
+Benefits of Crop Rotation:
+- Breaks pest and disease cycles by changing the host plant environment.
+- Optimizes soil nutrient utilization (e.g., planting legumes to fix nitrogen).
+- Improves soil structure and water retention.
+
+Example 4-Year Rotation Cycle:
+- Year 1: Nitrogen Fixers (Legumes: Peas, Beans)
+- Year 2: Heavy Feeders (Leafy greens, Brassicas: Cabbage, Broccoli)
+- Year 3: Light Feeders (Root vegetables: Carrots, Potatoes)
+- Year 4: Grains or Cover Crops (Oats, Rye) to suppress weeds and rest soil.

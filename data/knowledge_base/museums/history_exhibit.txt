@@ -1,0 +1,12 @@
+=== SAMPLE DATA ===
+Domain: Museums
+Document: Museum of Natural History - The Cretaceous Giants Exhibit
+Gallery: Hall 3, First Floor
+
+Exhibit Overview:
+Focuses on the Late Cretaceous period (approx. 66-100 million years ago) in North America. Features full-scale skeleton reproductions, fossilized footprints, and interactive displays.
+
+Key Highlights:
+- The Tyrannosaurus Rex: A 12-meter-long cast of a sub-adult specimen discovered in South Dakota.
+- Triceratops Horridus: Complete skull fossil featuring the iconic three horns and large bony frill.
+- Fossil Dig Pit: An interactive activity area for young visitors to excavate simulated dinosaur bones.

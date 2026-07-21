@@ -1,0 +1,13 @@
+=== SAMPLE DATA ===
+Domain: College
+Document: Course Catalog - Introduction to Computer Science
+Course Code: CS-101
+Credits: 4
+
+Overview:
+An introduction to the fundamental concepts of computer science and programming. Topics include:
+- Variables, data types, and control structures
+- Functions and modular programming
+- Basic data structures: lists, dictionaries, and tuples
+- Introduction to object-oriented programming (OOP) in Python
+- Algorithm design and debugging techniques

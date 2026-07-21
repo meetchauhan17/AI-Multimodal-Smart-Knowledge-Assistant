@@ -1,0 +1,11 @@
+=== SAMPLE DATA ===
+Domain: Library
+Document: Central Library Code of Conduct
+Audience: All Visitors and Members
+
+Rules and Regulations:
+1. Quiet Zones: Silence or whisper-level conversation only in designated reading rooms.
+2. Mobile Devices: Set all phones to silent. Calls must be taken outside the library main hall.
+3. Borrowing Limit: Registered members may borrow up to 5 books at a time for a duration of 14 days.
+4. Late Fees: A fine of $0.50 per day will be charged for overdue books.
+5. Care of Materials: Writing in, highlighting, or damaging library materials is strictly prohibited.

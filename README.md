@@ -1,5 +1,8 @@
-# AI Multimodal Smart Knowledge Assistant
-
+<div align="center">
+  <img src="ui/web_modern/favicon.svg" alt="AI Multimodal Smart Knowledge Assistant Logo" width="200" height="200">
+  
+  # AI Multimodal Smart Knowledge Assistant
+</div>
 [![Python Version](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/Framework-FastAPI%20%7C%20Gradio-green.svg)](https://fastapi.tiangolo.com/)
 [![LLM Providers](https://img.shields.io/badge/LLM-Gemini%203.5%20Flash%20%7C%20Groq%2070B-purple.svg)](https://deepmind.google/technologies/gemini/)

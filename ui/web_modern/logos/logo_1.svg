@@ -1,12 +1,13 @@
-<!-- Concept 1: Modern AI Mobius Prism (Anthropic/Linear Style) -->
+<!-- Style 1: Neo-Brutalism -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="c1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4F46E5"/>
-      <stop offset="50%" stop-color="#06B6D4"/>
-      <stop offset="100%" stop-color="#F59E0B"/>
-    </linearGradient>
-  </defs>
-  <path d="M 96 360 V 170 C 96 110, 160 110, 196 150 L 256 230 L 316 150 C 352 110, 416 110, 416 170 V 360" fill="none" stroke="url(#c1-grad)" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 256 70 L 268 102 L 300 114 L 268 126 L 256 158 L 244 126 L 212 114 L 244 102 Z" fill="#F59E0B"/>
+  <!-- Background offset shadow -->
+  <rect x="120" y="120" width="280" height="280" rx="16" fill="#111827"/>
+  <!-- Main shape -->
+  <rect x="100" y="100" width="280" height="280" rx="16" fill="#FDE047" stroke="#111827" stroke-width="12"/>
+  
+  <circle cx="200" cy="200" r="40" fill="#EC4899" stroke="#111827" stroke-width="10"/>
+  <rect x="260" y="260" width="80" height="80" fill="#3B82F6" stroke="#111827" stroke-width="10"/>
+  
+  <!-- Brutalist Star -->
+  <path d="M 120 340 L 160 350 L 170 390 L 180 350 L 220 340 L 180 330 L 170 290 L 160 330 Z" fill="#22C55E" stroke="#111827" stroke-width="8" stroke-linejoin="round"/>
 </svg>

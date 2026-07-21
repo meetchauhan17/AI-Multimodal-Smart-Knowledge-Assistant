@@ -1,18 +1,14 @@
-<!-- Concept 2: Perplexity-Style Quantum Pulse Grid -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+<!-- Style 2: Elegant Monoline Luxury -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" style="background-color: #0A0A0A;">
   <defs>
-    <linearGradient id="c2-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00F2FE"/>
-      <stop offset="100%" stop-color="#4FACFE"/>
-    </linearGradient>
-    <linearGradient id="c2-purple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9333EA"/>
-      <stop offset="100%" stop-color="#EC4899"/>
+    <linearGradient id="s2-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#F3E5AB"/>
+      <stop offset="100%" stop-color="#996515"/>
     </linearGradient>
   </defs>
-  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#c2-cyan)" stroke-width="16" opacity="0.6"/>
-  <circle cx="256" cy="256" r="130" fill="none" stroke="url(#c2-purple)" stroke-width="20"/>
-  <path d="M 126 256 H 386 M 256 126 V 386" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
-  <polygon points="256,170 312,256 256,342 200,256" fill="#F59E0B"/>
-  <circle cx="256" cy="256" r="16" fill="#FFFFFF"/>
+  <!-- Thin elegant continuous line brain/AI node -->
+  <path d="M 256 100 C 120 100, 100 250, 180 320 C 140 400, 220 420, 256 360 C 292 420, 372 400, 332 320 C 412 250, 392 100, 256 100 Z M 256 160 C 180 160, 180 230, 256 230 C 332 230, 332 160, 256 160 Z" fill="none" stroke="url(#s2-gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Central Spark -->
+  <path d="M 256 260 L 260 280 L 280 284 L 260 288 L 256 308 L 252 288 L 232 284 L 252 280 Z" fill="url(#s2-gold)"/>
 </svg>

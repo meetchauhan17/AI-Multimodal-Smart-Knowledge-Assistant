@@ -1,17 +1,23 @@
-<!-- Concept 8: Minimalist Robot Assistant Emblem (Midjourney/Apple Style) -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="c8-bot" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0F172A"/>
-      <stop offset="100%" stop-color="#1E293B"/>
-    </linearGradient>
-    <linearGradient id="c8-visor" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00F2FE"/>
-      <stop offset="100%" stop-color="#4FACFE"/>
-    </linearGradient>
-  </defs>
-  <circle cx="256" cy="256" r="190" fill="url(#c8-bot)" stroke="url(#c8-visor)" stroke-width="14"/>
-  <!-- Minimalist Visor Stroke Arc -->
-  <path d="M 160 256 Q 256 190 352 256" fill="none" stroke="url(#c8-visor)" stroke-width="26" stroke-linecap="round"/>
-  <circle cx="256" cy="223" r="14" fill="#FFFFFF"/>
+<!-- Style 8: ASCII Terminal Retro -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" style="background-color: #000000;">
+  <style>
+    .ascii { font-family: monospace; font-size: 14px; font-weight: bold; fill: #00FF41; letter-spacing: 4px; }
+    .ascii-bright { fill: #FFFFFF; }
+  </style>
+  <text x="40" y="80" class="ascii">010101110100101001010</text>
+  <text x="40" y="110" class="ascii">10010<tspan class="ascii-bright">11011010010</tspan>01110</text>
+  <text x="40" y="140" class="ascii">011<tspan class="ascii-bright">01100111000101</tspan>0011</text>
+  <text x="40" y="170" class="ascii">10<tspan class="ascii-bright">01001001001001001</tspan>100</text>
+  <text x="40" y="200" class="ascii">0<tspan class="ascii-bright">1100101011010010110</tspan>01</text>
+  <text x="40" y="230" class="ascii">1<tspan class="ascii-bright">0100111000101110010</tspan>11</text>
+  <text x="40" y="260" class="ascii">0<tspan class="ascii-bright">0110010101101001011</tspan>01</text>
+  <text x="40" y="290" class="ascii">10<tspan class="ascii-bright">01001001001001001</tspan>001</text>
+  <text x="40" y="320" class="ascii">011<tspan class="ascii-bright">01100111000101</tspan>0110</text>
+  <text x="40" y="350" class="ascii">10110<tspan class="ascii-bright">11011010010</tspan>11001</text>
+  <text x="40" y="380" class="ascii">001010010100101100101</text>
+  <text x="40" y="410" class="ascii">110111001010111011000</text>
+  <text x="40" y="440" class="ascii">010100010011001010101</text>
+  
+  <!-- Glowing central node in ASCII -->
+  <text x="238" y="245" font-family="monospace" font-size="32" font-weight="bold" fill="#00FF41">[+]</text>
 </svg>
